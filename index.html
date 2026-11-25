@@ -5,187 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hospital Medicine Consultants | Northeast &amp; Mid-Atlantic Inpatient Practice</title>
   <style>
-    :root {
-      --navy-deep: #0B1C34;
-      --navy-royal: #142D52;
-      --alabaster: #F7F8FA;
-      --ice-slate: #EDF1F7;
-      --pure-white: #FFFFFF;
-      --ink-dark: #0F172A;
-      --ink-slate: #334155;
-      --ink-muted: #64748B;
-      --border-light: #DCE3EE;
-      --border-strong: #CBD5E1;
-      --crimson: #B91C1C;
-      --crimson-soft: #FEF2F2;
-      --cobalt: #1D4ED8;
-      --cobalt-soft: #EFF6FF;
-      --emerald: #0F766E;
-      --emerald-soft: #F0FDFA;
-      --amber: #B45309;
-      --amber-soft: #FFFBEB;
-      --font-serif: Georgia, "Times New Roman", Times, serif;
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      --shadow-sm: 0 2px 8px rgba(11, 28, 52, 0.05);
-      --shadow-md: 0 10px 28px rgba(11, 28, 52, 0.08);
-      --shadow-lg: 0 20px 44px rgba(11, 28, 52, 0.16);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--font-sans); background-color: var(--alabaster); color: var(--ink-dark); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font-family: inherit; }
-    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
-    .serif { font-family: var(--font-serif); letter-spacing: -0.015em; }
-    .mono { font-family: var(--font-mono); }
-    .hidden { display: none !important; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; padding: 0.72rem 1.35rem; border-radius: 6px; border: 1px solid transparent; cursor: pointer; transition: transform 0.14s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; text-align: center; }
-    .btn:active { transform: translateY(1px); }
-    .btn:disabled { opacity: 0.65; cursor: not-allowed; }
-    .btn-lg { padding: 0.88rem 1.6rem; font-size: 0.95rem; }
-    .btn-sm { padding: 0.45rem 0.9rem; font-size: 0.82rem; }
-    .btn-emerald { background-color: var(--emerald); color: #FFFFFF; border-color: var(--emerald); box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25); }
-    .btn-emerald:hover:not(:disabled) { background-color: #0D635C; border-color: #0D635C; }
-    .btn-navy { background-color: var(--navy-deep); color: #FFFFFF; border-color: var(--navy-deep); box-shadow: 0 4px 12px rgba(11, 28, 52, 0.18); }
-    .btn-navy:hover { background-color: var(--navy-royal); border-color: var(--navy-royal); }
-    .btn-white { background-color: #FFFFFF; color: var(--navy-deep); border-color: #FFFFFF; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); }
-    .btn-white:hover { background-color: var(--ice-slate); }
-    .btn-glass { background-color: rgba(255, 255, 255, 0.08); color: #FFFFFF; border-color: rgba(255, 255, 255, 0.26); }
-    .btn-glass:hover { background-color: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.45); }
-    .btn-outline { background-color: #FFFFFF; color: var(--navy-deep); border-color: var(--border-strong); }
-    .btn-outline:hover { border-color: var(--navy-deep); background-color: var(--ice-slate); }
-    .toast-banner { position: fixed; bottom: 1.5rem; right: 1.5rem; max-width: 460px; background-color: var(--navy-deep); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.18); border-left: 4px solid #10B981; border-radius: 8px; padding: 1rem 1.15rem; box-shadow: var(--shadow-lg); z-index: 9999; display: flex; flex-direction: column; gap: 0.65rem; transform: translateY(160%); opacity: 0; pointer-events: none; transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease; }
-    .toast-banner.visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
-    .toast-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
-    .toast-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; padding-top: 0.35rem; border-top: 1px solid rgba(255, 255, 255, 0.12); }
-    .toast-link-btn { font-size: 0.76rem; font-weight: 600; padding: 0.32rem 0.65rem; border-radius: 4px; background-color: rgba(255, 255, 255, 0.12); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.2); cursor: pointer; }
-    .toast-link-btn:hover { background-color: rgba(255, 255, 255, 0.22); }
-    @media (max-width: 560px) { .toast-banner { left: 1rem; right: 1rem; bottom: 1rem; max-width: none; } }
-    .masthead { background-color: var(--pure-white); border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 10px rgba(11, 28, 52, 0.04); }
-    .masthead-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 0; gap: 1rem; flex-wrap: wrap; }
-    .brand-lockup { display: flex; align-items: center; gap: 0.85rem; }
-    .brand-name { font-family: var(--font-serif); font-size: 1.24rem; font-weight: 700; color: var(--navy-deep); line-height: 1.15; }
-    .brand-sub { font-family: var(--font-mono); font-size: 0.67rem; font-weight: 600; letter-spacing: 0.08em; color: var(--crimson); text-transform: uppercase; margin-top: 0.16rem; }
-    .header-nav { display: flex; align-items: center; gap: 1.4rem; }
-    .header-nav a { font-size: 0.86rem; font-weight: 600; color: var(--ink-slate); transition: color 0.15s ease; }
-    .header-nav a:hover { color: var(--cobalt); }
-    @media (max-width: 1020px) { .header-nav { display: none; } }
-    .role-pill-switcher { display: inline-flex; background-color: var(--ice-slate); border: 1px solid var(--border-strong); border-radius: 999px; padding: 0.25rem; gap: 0.25rem; }
-    .role-pill { border: none; background: transparent; padding: 0.5rem 1.05rem; border-radius: 999px; font-size: 0.82rem; font-weight: 700; color: var(--ink-slate); cursor: pointer; transition: background-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease; }
-    .role-pill:hover { color: var(--navy-deep); }
-    .role-pill.active-hospital { background-color: var(--navy-deep); color: #FFFFFF; box-shadow: 0 2px 8px rgba(11, 28, 52, 0.22); }
-    .role-pill.active-physician { background-color: var(--emerald); color: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 118, 110, 0.24); }
-    @media (max-width: 600px) { .role-pill-switcher { width: 100%; } .role-pill { flex: 1; padding: 0.5rem 0.6rem; font-size: 0.78rem; } }
-    .hero-stage { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-royal) 65%, #193A68 100%); color: #FFFFFF; padding: 4rem 0 4.5rem; position: relative; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 2.75rem; align-items: center; }
-    @media (max-width: 940px) { .hero-grid { grid-template-columns: 1fr; gap: 2.25rem; } }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.55rem; background-color: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 255, 255, 0.18); padding: 0.36rem 0.85rem; border-radius: 999px; font-family: var(--font-mono); font-size: 0.73rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #93C5FD; }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background-color: #10B981; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25); }
-    .hero-headline { font-family: var(--font-serif); font-size: clamp(2.05rem, 3.6vw, 2.95rem); font-weight: 400; line-height: 1.16; color: #FFFFFF; margin-top: 1.1rem; }
-    .hero-subcopy { font-size: 1.04rem; color: #DCE6F5; margin-top: 1.1rem; max-width: 590px; line-height: 1.65; }
-    .hero-cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.85rem; }
-    .hero-metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.16); }
-    @media (max-width: 560px) { .hero-metrics-strip { grid-template-columns: 1fr; gap: 0.85rem; } }
-    .metric-box { background-color: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 8px; padding: 0.85rem 1rem; }
-    .metric-number { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: #FFFFFF; }
-    .metric-caption { font-size: 0.78rem; color: #CBD5E1; margin-top: 0.15rem; }
-    .hero-illustration-frame { background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(11, 28, 52, 0.45) 100%); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 1rem; box-shadow: 0 24px 48px rgba(4, 12, 26, 0.45); }
-    .hero-illustration-frame svg { width: 100%; height: auto; display: block; border-radius: 8px; }
-    .band-alabaster { background-color: var(--alabaster); padding: 4.5rem 0; }
-    .band-ice { background-color: var(--ice-slate); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 4.5rem 0; }
-    .band-white { background-color: var(--pure-white); padding: 4.5rem 0; }
-    .section-head { max-width: 720px; margin-bottom: 2.6rem; }
-    .section-head.centered { margin-left: auto; margin-right: auto; text-align: center; }
-    .section-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; padding: 0.28rem 0.7rem; border-radius: 4px; background-color: var(--cobalt-soft); color: var(--cobalt); }
-    .section-tag.emerald-tag { background-color: var(--emerald-soft); color: var(--emerald); }
-    .section-title { font-family: var(--font-serif); font-size: clamp(1.75rem, 2.9vw, 2.3rem); font-weight: 400; color: var(--navy-deep); line-height: 1.22; margin-top: 0.65rem; }
-    .section-subtitle { font-size: 1rem; color: var(--ink-slate); margin-top: 0.6rem; }
-    .standards-cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
-    @media (max-width: 820px) { .standards-cards-grid { grid-template-columns: 1fr; } }
-    .graphic-standard-card { background-color: var(--pure-white); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); display: flex; flex-direction: column; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-    .graphic-standard-card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(11, 28, 52, 0.11); }
-    .card-scene-header { height: 134px; width: 100%; position: relative; overflow: hidden; border-bottom: 1px solid var(--border-light); }
-    .card-scene-header svg { width: 100%; height: 100%; display: block; }
-    .card-scene-body { padding: 1.5rem 1.65rem 1.7rem; flex: 1; display: flex; flex-direction: column; }
-    .card-accent-label { font-family: var(--font-mono); font-size: 0.71rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }
-    .card-scene-title { font-family: var(--font-serif); font-size: 1.28rem; font-weight: 400; color: var(--navy-deep); margin-bottom: 0.55rem; }
-    .card-scene-text { font-size: 0.93rem; color: var(--ink-slate); line-height: 1.58; }
-    .pipeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; position: relative; }
-    @media (max-width: 860px) { .pipeline-grid { grid-template-columns: 1fr; } }
-    .pipeline-stage-card { background-color: var(--pure-white); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.85rem 1.65rem; box-shadow: var(--shadow-sm); position: relative; text-align: center; }
-    .stage-medallion { width: 82px; height: 82px; margin: 0 auto 1.1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
-    .stage-step-chip { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.22rem 0.65rem; border-radius: 999px; margin-bottom: 0.55rem; }
-    .pipeline-title { font-family: var(--font-serif); font-size: 1.24rem; font-weight: 400; color: var(--navy-deep); margin-bottom: 0.5rem; }
-    .pipeline-desc { font-size: 0.9rem; color: var(--ink-slate); }
-    .map-studio-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 2rem; align-items: start; }
-    @media (max-width: 920px) { .map-studio-grid { grid-template-columns: 1fr; } }
-    .map-canvas-card { background-color: var(--pure-white); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.35rem; box-shadow: var(--shadow-md); }
-    .topographic-svg { width: 100%; height: auto; display: block; border-radius: 8px; background: linear-gradient(180deg, #E8F0FA 0%, #F4F7FB 100%); border: 1px solid var(--border-light); }
-    .region-state-poly { stroke: #FFFFFF; stroke-width: 2.2; cursor: pointer; transition: fill 0.18s ease, transform 0.18s ease; }
-    .region-state-poly:hover { fill: var(--emerald) !important; }
-    .region-state-poly.selected { fill: var(--navy-deep) !important; stroke: #FBBF24; stroke-width: 2.5; }
-    .map-code-text { font-family: var(--font-mono); font-size: 12px; font-weight: 700; fill: var(--navy-deep); pointer-events: none; text-anchor: middle; }
-    .map-code-text.selected-text { fill: #FFFFFF; }
-    @keyframes radarPulse { 0% { r: 10; opacity: 0.85; } 100% { r: 28; opacity: 0; } }
-    .radar-ring { fill: none; stroke: #F59E0B; stroke-width: 2.5; pointer-events: none; animation: radarPulse 1.8s infinite ease-out; }
-    .state-quick-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.45rem; margin-bottom: 1.15rem; }
-    @media (max-width: 520px) { .state-quick-grid { grid-template-columns: repeat(2, 1fr); } }
-    .state-chip-btn { display: flex; align-items: center; justify-content: center; gap: 0.35rem; padding: 0.55rem 0.4rem; border-radius: 6px; border: 1px solid var(--border-strong); background-color: var(--pure-white); color: var(--navy-deep); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.14s ease; }
-    .state-chip-btn:hover { border-color: var(--cobalt); background-color: var(--cobalt-soft); }
-    .state-chip-btn.active { background-color: var(--navy-deep); border-color: var(--navy-deep); color: #FFFFFF; box-shadow: 0 3px 10px rgba(11, 28, 52, 0.2); }
-    .state-detail-card { background-color: var(--pure-white); border: 1px solid var(--border-light); border-top: 4px solid var(--cobalt); border-radius: 12px; padding: 1.85rem; box-shadow: var(--shadow-md); }
-    .detail-spec-list { margin-top: 1.1rem; display: flex; flex-direction: column; gap: 0.85rem; }
-    .detail-spec-box { background-color: var(--alabaster); border: 1px solid var(--border-light); border-radius: 8px; padding: 0.85rem 1rem; }
-    .detail-spec-label { font-family: var(--font-mono); font-size: 0.69rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); }
-    .detail-spec-value { font-size: 0.91rem; color: var(--ink-dark); margin-top: 0.2rem; }
-    .dispatch-studio-card { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-royal) 100%); color: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); display: grid; grid-template-columns: 0.92fr 1.08fr; }
-    @media (max-width: 900px) { .dispatch-studio-card { grid-template-columns: 1fr; } }
-    .dispatch-visual-pane { background-color: rgba(7, 19, 36, 0.55); border-right: 1px solid rgba(255, 255, 255, 0.12); padding: 2.25rem; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    @media (max-width: 900px) { .dispatch-visual-pane { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.12); padding: 1.75rem; } }
-    .dispatch-controls-pane { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
-    .email-display-bar { margin-top: 1.25rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 8px; padding: 0.95rem 1.1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
-    .webmail-btn-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin-top: 1rem; }
-    @media (max-width: 600px) { .webmail-btn-group { grid-template-columns: 1fr; } }
-    .filter-card { background-color: var(--pure-white); border: 1px solid var(--border-light); border-radius: 10px; padding: 1.25rem; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; align-items: end; margin-bottom: 1.5rem; }
-    @media (max-width: 860px) { .filter-card { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 520px) { .filter-card { grid-template-columns: 1fr; } }
-    .field-wrap label { display: block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-muted); margin-bottom: 0.38rem; }
-    .ui-input { width: 100%; padding: 0.62rem 0.85rem; border: 1px solid var(--border-strong); border-radius: 6px; background-color: var(--pure-white); color: var(--ink-dark); font-size: 0.9rem; }
-    .ui-input:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12); }
-    .jobs-visual-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-    @media (max-width: 840px) { .jobs-visual-grid { grid-template-columns: 1fr; } }
-    .job-card { background-color: var(--pure-white); border: 1px solid var(--border-light); border-left: 4px solid var(--emerald); border-radius: 10px; padding: 1.45rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
-    .job-card-badges { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
-    .shift-pill { font-family: var(--font-mono); font-size: 0.71rem; font-weight: 700; padding: 0.24rem 0.6rem; border-radius: 4px; background-color: var(--emerald-soft); color: var(--emerald); }
-    .shift-pill.nocturnist { background-color: var(--cobalt-soft); color: var(--cobalt); }
-    .shift-pill.swing { background-color: var(--amber-soft); color: var(--amber); }
-    .cv-studio-card { max-width: 840px; margin: 0 auto; background-color: var(--pure-white); border: 1px solid var(--border-light); border-top: 4px solid var(--emerald); border-radius: 12px; padding: 2.25rem; box-shadow: var(--shadow-md); }
-    .form-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-bottom: 1.1rem; }
-    @media (max-width: 640px) { .form-2col { grid-template-columns: 1fr; } }
-    .license-pill-list { display: flex; flex-wrap: wrap; gap: 0.48rem; margin-top: 0.45rem; }
-    .license-check-pill { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.38rem 0.72rem; border-radius: 6px; border: 1px solid var(--border-strong); background-color: var(--alabaster); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--navy-deep); cursor: pointer; }
-    .cv-drop-area { border: 2px dashed var(--border-strong); border-radius: 10px; background-color: var(--alabaster); padding: 1.75rem; text-align: center; cursor: pointer; margin-top: 0.45rem; transition: border-color 0.16s ease, background-color 0.16s ease; }
-    .cv-drop-area:hover, .cv-drop-area.dragover { border-color: var(--emerald); background-color: var(--emerald-soft); }
-    .feedback-alert { display: none; margin-top: 1rem; padding: 0.95rem 1.1rem; border-radius: 6px; font-size: 0.89rem; font-weight: 500; }
-    .feedback-alert.success { display: block; background-color: var(--emerald-soft); color: var(--emerald); border: 1px solid var(--emerald); }
-    .feedback-alert.error { display: block; background-color: var(--crimson-soft); color: var(--crimson); border: 1px solid #FCA5A5; }
-    .site-footer { background-color: var(--navy-deep); color: #CBD5E1; padding: 3.25rem 0 2rem; font-size: 0.86rem; }
-    .footer-cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.25rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
-    @media (max-width: 780px) { .footer-cols { grid-template-columns: 1fr; } }
-    .footer-title { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #93C5FD; margin-bottom: 0.6rem; }
-    .footer-legal { padding-top: 1.35rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; font-size: 0.78rem; color: #94A3B8; }
+    :root{--navy-deep:#0B1C34;--navy-royal:#142D52;--alabaster:#F7F8FA;--ice-slate:#EDF1F7;--pure-white:#FFFFFF;--ink-dark:#0F172A;--ink-slate:#334155;--ink-muted:#64748B;--border-light:#DCE3EE;--border-strong:#CBD5E1;--crimson:#B91C1C;--crimson-soft:#FEF2F2;--cobalt:#1D4ED8;--cobalt-soft:#EFF6FF;--emerald:#0F766E;--emerald-soft:#F0FDFA;--amber:#B45309;--amber-soft:#FFFBEB;--font-serif:Georgia,"Times New Roman",Times,serif;--font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--shadow-sm:0 2px 8px rgba(11,28,52,.05);--shadow-md:0 10px 28px rgba(11,28,52,.08);--shadow-lg:0 20px 44px rgba(11,28,52,.16)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-sans);background-color:var(--alabaster);color:var(--ink-dark);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font-family:inherit}
+    .container{width:100%;max-width:1180px;margin:0 auto;padding:0 1.5rem}
+    .serif{font-family:var(--font-serif);letter-spacing:-.015em}
+    .mono{font-family:var(--font-mono)}
+    .hidden{display:none!important}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;font-size:.9rem;padding:.72rem 1.35rem;border-radius:6px;border:1px solid transparent;cursor:pointer;transition:transform .14s ease,background-color .15s ease,border-color .15s ease,box-shadow .15s ease;text-align:center}
+    .btn:active{transform:translateY(1px)}
+    .btn:disabled{opacity:.65;cursor:not-allowed}
+    .btn-lg{padding:.88rem 1.6rem;font-size:.95rem}
+    .btn-sm{padding:.45rem .9rem;font-size:.82rem}
+    .btn-emerald{background-color:var(--emerald);color:#fff;border-color:var(--emerald);box-shadow:0 4px 12px rgba(15,118,110,.25)}
+    .btn-emerald:hover:not(:disabled){background-color:#0D635C;border-color:#0D635C}
+    .btn-navy{background-color:var(--navy-deep);color:#fff;border-color:var(--navy-deep);box-shadow:0 4px 12px rgba(11,28,52,.18)}
+    .btn-navy:hover{background-color:var(--navy-royal);border-color:var(--navy-royal)}
+    .btn-white{background-color:#fff;color:var(--navy-deep);border-color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+    .btn-white:hover{background-color:var(--ice-slate)}
+    .btn-glass{background-color:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.26)}
+    .btn-glass:hover{background-color:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45)}
+    .btn-outline{background-color:#fff;color:var(--navy-deep);border-color:var(--border-strong)}
+    .btn-outline:hover{border-color:var(--navy-deep);background-color:var(--ice-slate)}
+    .toast-banner{position:fixed;bottom:1.5rem;right:1.5rem;max-width:460px;background-color:var(--navy-deep);color:#fff;border:1px solid rgba(255,255,255,.18);border-left:4px solid #10B981;border-radius:8px;padding:1rem 1.15rem;box-shadow:var(--shadow-lg);z-index:9999;display:flex;flex-direction:column;gap:.65rem;transform:translateY(160%);opacity:0;pointer-events:none;transition:transform .24s cubic-bezier(.16,1,.3,1),opacity .2s ease}
+    .toast-banner.visible{transform:translateY(0);opacity:1;pointer-events:auto}
+    .toast-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+    .toast-actions{display:flex;flex-wrap:wrap;gap:.45rem;padding-top:.35rem;border-top:1px solid rgba(255,255,255,.12)}
+    .toast-link-btn{font-size:.76rem;font-weight:600;padding:.32rem .65rem;border-radius:4px;background-color:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);cursor:pointer}
+    .toast-link-btn:hover{background-color:rgba(255,255,255,.22)}
+    @media(max-width:560px){.toast-banner{left:1rem;right:1rem;bottom:1rem;max-width:none}}
+    .masthead{background-color:var(--pure-white);border-bottom:1px solid var(--border-light);position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(11,28,52,.04)}
+    .masthead-inner{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;gap:1rem;flex-wrap:wrap}
+    .brand-lockup{display:flex;align-items:center;gap:.85rem}
+    .brand-name{font-family:var(--font-serif);font-size:1.24rem;font-weight:700;color:var(--navy-deep);line-height:1.15}
+    .brand-sub{font-family:var(--font-mono);font-size:.67rem;font-weight:600;letter-spacing:.08em;color:var(--crimson);text-transform:uppercase;margin-top:.16rem}
+    .header-nav{display:flex;align-items:center;gap:1.4rem}
+    .header-nav a{font-size:.86rem;font-weight:600;color:var(--ink-slate);transition:color .15s ease}
+    .header-nav a:hover{color:var(--cobalt)}
+    @media(max-width:1020px){.header-nav{display:none}}
+    .role-pill-switcher{display:inline-flex;background-color:var(--ice-slate);border:1px solid var(--border-strong);border-radius:999px;padding:.25rem;gap:.25rem}
+    .role-pill{border:none;background:0 0;padding:.5rem 1.05rem;border-radius:999px;font-size:.82rem;font-weight:700;color:var(--ink-slate);cursor:pointer;transition:background-color .16s ease,color .16s ease,box-shadow .16s ease}
+    .role-pill:hover{color:var(--navy-deep)}
+    .role-pill.active-hospital{background-color:var(--navy-deep);color:#fff;box-shadow:0 2px 8px rgba(11,28,52,.22)}
+    .role-pill.active-physician{background-color:var(--emerald);color:#fff;box-shadow:0 2px 8px rgba(15,118,110,.24)}
+    @media(max-width:600px){.role-pill-switcher{width:100%}.role-pill{flex:1;padding:.5rem .6rem;font-size:.78rem}}
+    .hero-stage{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy-royal) 65%,#193A68 100%);color:#fff;padding:4rem 0 4.5rem;position:relative;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2.75rem;align-items:center}
+    @media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:2.25rem}}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.55rem;background-color:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);padding:.36rem .85rem;border-radius:999px;font-family:var(--font-mono);font-size:.73rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#93C5FD}
+    .pulse-dot{width:8px;height:8px;border-radius:50%;background-color:#10B981;box-shadow:0 0 0 4px rgba(16,185,129,.25)}
+    .hero-headline{font-family:var(--font-serif);font-size:clamp(2.05rem,3.6vw,2.95rem);font-weight:400;line-height:1.16;color:#fff;margin-top:1.1rem}
+    .hero-subcopy{font-size:1.04rem;color:#DCE6F5;margin-top:1.1rem;max-width:590px;line-height:1.65}
+    .hero-cta-row{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:1.85rem}
+    .hero-metrics-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.16)}
+    @media(max-width:560px){.hero-metrics-strip{grid-template-columns:1fr;gap:.85rem}}
+    .metric-box{background-color:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:.85rem 1rem}
+    .metric-number{font-family:var(--font-serif);font-size:1.25rem;font-weight:700;color:#fff}
+    .metric-caption{font-size:.78rem;color:#CBD5E1;margin-top:.15rem}
+    .hero-illustration-frame{background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(11,28,52,.45) 100%);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:1rem;box-shadow:0 24px 48px rgba(4,12,26,.45)}
+    .hero-illustration-frame svg{width:100%;height:auto;display:block;border-radius:8px}
+    .band-alabaster{background-color:var(--alabaster);padding:4.5rem 0}
+    .band-ice{background-color:var(--ice-slate);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);padding:4.5rem 0}
+    .band-white{background-color:var(--pure-white);padding:4.5rem 0}
+    .section-head{max-width:720px;margin-bottom:2.6rem}
+    .section-head.centered{margin-left:auto;margin-right:auto;text-align:center}
+    .section-tag{display:inline-block;font-family:var(--font-mono);font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;padding:.28rem .7rem;border-radius:4px;background-color:var(--cobalt-soft);color:var(--cobalt)}
+    .section-tag.emerald-tag{background-color:var(--emerald-soft);color:var(--emerald)}
+    .section-title{font-family:var(--font-serif);font-size:clamp(1.75rem,2.9vw,2.3rem);font-weight:400;color:var(--navy-deep);line-height:1.22;margin-top:.65rem}
+    .section-subtitle{font-size:1rem;color:var(--ink-slate);margin-top:.6rem}
+    .standards-cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem}
+    @media(max-width:820px){.standards-cards-grid{grid-template-columns:1fr}}
+    .graphic-standard-card{background-color:var(--pure-white);border:1px solid var(--border-light);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+    .graphic-standard-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(11,28,52,.11)}
+    .card-scene-header{height:134px;width:100%;position:relative;overflow:hidden;border-bottom:1px solid var(--border-light)}
+    .card-scene-header svg{width:100%;height:100%;display:block}
+    .card-scene-body{padding:1.5rem 1.65rem 1.7rem;flex:1;display:flex;flex-direction:column}
+    .card-accent-label{font-family:var(--font-mono);font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+    .card-scene-title{font-family:var(--font-serif);font-size:1.28rem;font-weight:400;color:var(--navy-deep);margin-bottom:.55rem}
+    .card-scene-text{font-size:.93rem;color:var(--ink-slate);line-height:1.58}
+    .pipeline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;position:relative}
+    @media(max-width:860px){.pipeline-grid{grid-template-columns:1fr}}
+    .pipeline-stage-card{background-color:var(--pure-white);border:1px solid var(--border-light);border-radius:12px;padding:1.85rem 1.65rem;box-shadow:var(--shadow-sm);position:relative;text-align:center}
+    .stage-medallion{width:82px;height:82px;margin:0 auto 1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative}
+    .stage-step-chip{display:inline-block;font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.08em;padding:.22rem .65rem;border-radius:999px;margin-bottom:.55rem}
+    .pipeline-title{font-family:var(--font-serif);font-size:1.24rem;font-weight:400;color:var(--navy-deep);margin-bottom:.5rem}
+    .pipeline-desc{font-size:.9rem;color:var(--ink-slate)}
+    .map-studio-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2rem;align-items:start}
+    @media(max-width:920px){.map-studio-grid{grid-template-columns:1fr}}
+    .map-canvas-card{background-color:var(--pure-white);border:1px solid var(--border-light);border-radius:12px;padding:1.35rem;box-shadow:var(--shadow-md)}
+    .topographic-svg{width:100%;height:auto;display:block;border-radius:8px;background:linear-gradient(180deg,#E8F0FA 0%,#F4F7FB 100%);border:1px solid var(--border-light)}
+    .region-state-poly{stroke:#fff;stroke-width:2.2;cursor:pointer;transition:fill .18s ease,transform .18s ease}
+    .region-state-poly:hover{fill:var(--emerald)!important}
+    .region-state-poly.selected{fill:var(--navy-deep)!important;stroke:#FBBF24;stroke-width:2.5}
+    .map-code-text{font-family:var(--font-mono);font-size:12px;font-weight:700;fill:var(--navy-deep);pointer-events:none;text-anchor:middle}
+    .map-code-text.selected-text{fill:#fff}
+    @keyframes radarPulse{0%{r:10;opacity:.85}100%{r:28;opacity:0}}
+    .radar-ring{fill:none;stroke:#F59E0B;stroke-width:2.5;pointer-events:none;animation:radarPulse 1.8s infinite ease-out}
+    .state-quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem;margin-bottom:1.15rem}
+    @media(max-width:520px){.state-quick-grid{grid-template-columns:repeat(2,1fr)}}
+    .state-chip-btn{display:flex;align-items:center;justify-content:center;gap:.35rem;padding:.55rem .4rem;border-radius:6px;border:1px solid var(--border-strong);background-color:var(--pure-white);color:var(--navy-deep);font-family:var(--font-mono);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .14s ease}
+    .state-chip-btn:hover{border-color:var(--cobalt);background-color:var(--cobalt-soft)}
+    .state-chip-btn.active{background-color:var(--navy-deep);border-color:var(--navy-deep);color:#fff;box-shadow:0 3px 10px rgba(11,28,52,.2)}
+    .state-detail-card{background-color:var(--pure-white);border:1px solid var(--border-light);border-top:4px solid var(--cobalt);border-radius:12px;padding:1.85rem;box-shadow:var(--shadow-md)}
+    .detail-spec-list{margin-top:1.1rem;display:flex;flex-direction:column;gap:.85rem}
+    .detail-spec-box{background-color:var(--alabaster);border:1px solid var(--border-light);border-radius:8px;padding:.85rem 1rem}
+    .detail-spec-label{font-family:var(--font-mono);font-size:.69rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted)}
+    .detail-spec-value{font-size:.91rem;color:var(--ink-dark);margin-top:.2rem}
+    .dispatch-studio-card{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy-royal) 100%);color:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:.92fr 1.08fr}
+    @media(max-width:900px){.dispatch-studio-card{grid-template-columns:1fr}}
+    .dispatch-visual-pane{background-color:rgba(7,19,36,.55);border-right:1px solid rgba(255,255,255,.12);padding:2.25rem;display:flex;flex-direction:column;justify-content:center;align-items:center}
+    @media(max-width:900px){.dispatch-visual-pane{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);padding:1.75rem}}
+    .dispatch-controls-pane{padding:2.5rem;display:flex;flex-direction:column;justify-content:center}
+    .email-display-bar{margin-top:1.25rem;background-color:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:.95rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+    .webmail-btn-group{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-top:1rem}
+    @media(max-width:600px){.webmail-btn-group{grid-template-columns:1fr}}
+    .filter-card{background-color:var(--pure-white);border:1px solid var(--border-light);border-radius:10px;padding:1.25rem;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;align-items:end;margin-bottom:1.5rem}
+    @media(max-width:860px){.filter-card{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.filter-card{grid-template-columns:1fr}}
+    .field-wrap label{display:block;font-family:var(--font-mono);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-muted);margin-bottom:.38rem}
+    .ui-input{width:100%;padding:.62rem .85rem;border:1px solid var(--border-strong);border-radius:6px;background-color:var(--pure-white);color:var(--ink-dark);font-size:.9rem}
+    .ui-input:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 3px rgba(15,118,110,.12)}
+    .jobs-visual-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+    @media(max-width:840px){.jobs-visual-grid{grid-template-columns:1fr}}
+    .job-card{background-color:var(--pure-white);border:1px solid var(--border-light);border-left:4px solid var(--emerald);border-radius:10px;padding:1.45rem;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
+    .job-card-badges{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+    .shift-pill{font-family:var(--font-mono);font-size:.71rem;font-weight:700;padding:.24rem .6rem;border-radius:4px;background-color:var(--emerald-soft);color:var(--emerald)}
+    .shift-pill.nocturnist{background-color:var(--cobalt-soft);color:var(--cobalt)}
+    .shift-pill.swing{background-color:var(--amber-soft);color:var(--amber)}
+    .cv-studio-card{max-width:840px;margin:0 auto;background-color:var(--pure-white);border:1px solid var(--border-light);border-top:4px solid var(--emerald);border-radius:12px;padding:2.25rem;box-shadow:var(--shadow-md)}
+    .form-2col{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-bottom:1.1rem}
+    @media(max-width:640px){.form-2col{grid-template-columns:1fr}}
+    .license-pill-list{display:flex;flex-wrap:wrap;gap:.48rem;margin-top:.45rem}
+    .license-check-pill{display:inline-flex;align-items:center;gap:.35rem;padding:.38rem .72rem;border-radius:6px;border:1px solid var(--border-strong);background-color:var(--alabaster);font-family:var(--font-mono);font-size:.78rem;font-weight:700;color:var(--navy-deep);cursor:pointer}
+    .cv-drop-area{border:2px dashed var(--border-strong);border-radius:10px;background-color:var(--alabaster);padding:1.75rem;text-align:center;cursor:pointer;margin-top:.45rem;transition:border-color .16s ease,background-color .16s ease}
+    .cv-drop-area:hover,.cv-drop-area.dragover{border-color:var(--emerald);background-color:var(--emerald-soft)}
+    .feedback-alert{display:none;margin-top:1rem;padding:.95rem 1.1rem;border-radius:6px;font-size:.89rem;font-weight:500}
+    .feedback-alert.success{display:block;background-color:var(--emerald-soft);color:var(--emerald);border:1px solid var(--emerald)}
+    .feedback-alert.error{display:block;background-color:var(--crimson-soft);color:var(--crimson);border:1px solid #FCA5A5}
+    .site-footer{background-color:var(--navy-deep);color:#CBD5E1;padding:3.25rem 0 2rem;font-size:.86rem}
+    .footer-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.25rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.14)}
+    @media(max-width:780px){.footer-cols{grid-template-columns:1fr}}
+    .footer-title{font-family:var(--font-mono);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#93C5FD;margin-bottom:.6rem}
+    .footer-legal{padding-top:1.35rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:.78rem;color:#94A3B8}
   </style>
 </head>
 <body>
-
   <div id="toast-banner" class="toast-banner" role="status" aria-live="polite">
     <div class="toast-top">
-      <div style="display:flex; align-items:flex-start; gap:0.65rem;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <div id="toast-text" style="font-size:0.84rem; line-height:1.45;"></div>
-      </div>
-      <button type="button" id="toast-close-btn" style="background:none; border:none; color:#94A3B8; font-size:1.15rem; cursor:pointer; line-height:1;" aria-label="Close notification">&times;</button>
+      <div style="display:flex;align-items:flex-start;gap:.65rem"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><div id="toast-text" style="font-size:.84rem;line-height:1.45"></div></div>
+      <button type="button" id="toast-close-btn" style="background:0 0;border:none;color:#94A3B8;font-size:1.15rem;cursor:pointer;line-height:1" aria-label="Close notification">&times;</button>
     </div>
     <div class="toast-actions">
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@hospitalmedicineconsultants.com&su=Hospitalist%20Coverage%20Request" target="_blank" rel="noopener noreferrer" class="toast-link-btn">Open in Gmail</a>
@@ -193,48 +164,29 @@
       <button type="button" id="toast-recopy-btn" class="toast-link-btn">Copy Email Again</button>
     </div>
   </div>
-
   <header class="masthead">
     <div class="container masthead-inner">
       <a href="#top" data-nav-target="hospital-view" data-nav-role="HOSPITAL" class="brand-lockup" aria-label="Hospital Medicine Consultants Home">
-        <svg width="46" height="52" viewBox="0 0 46 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="hmcShieldGrad" x1="23" y1="2" x2="23" y2="50" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#FEE2E2"></stop>
-              <stop offset="55%" stop-color="#FEF2F2"></stop>
-              <stop offset="100%" stop-color="#FFFFFF"></stop>
-            </linearGradient>
-          </defs>
-          <path d="M23 2L43 9.5V25.5C43 38.2 34.4 45.8 23 50C11.6 45.8 3 38.2 3 25.5V9.5L23 2Z" fill="url(#hmcShieldGrad)" stroke="#B91C1C" stroke-width="2.6"></path>
-          <path d="M23 5.8L39.2 11.9V25.3C39.2 35.9 32.1 42.3 23 46C13.9 42.3 6.8 35.9 6.8 25.3V11.9L23 5.8Z" fill="none" stroke="#FCA5A5" stroke-width="1.2"></path>
-          <text x="23" y="29.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13.5" letter-spacing="0.4" fill="#0B1C34">HMC</text>
-        </svg>
-        <div>
-          <div class="brand-name">Hospital Medicine Consultants</div>
-          <div class="brand-sub">NORTHEAST &amp; MID-ATLANTIC INPATIENT PRACTICE</div>
-        </div>
+        <svg width="46" height="52" viewBox="0 0 46 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="hmcShieldGrad" x1="23" y1="2" x2="23" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FEE2E2"></stop><stop offset="55%" stop-color="#FEF2F2"></stop><stop offset="100%" stop-color="#FFFFFF"></stop></linearGradient></defs><path d="M23 2L43 9.5V25.5C43 38.2 34.4 45.8 23 50C11.6 45.8 3 38.2 3 25.5V9.5L23 2Z" fill="url(#hmcShieldGrad)" stroke="#B91C1C" stroke-width="2.6"></path><path d="M23 5.8L39.2 11.9V25.3C39.2 35.9 32.1 42.3 23 46C13.9 42.3 6.8 35.9 6.8 25.3V11.9L23 5.8Z" fill="none" stroke="#FCA5A5" stroke-width="1.2"></path><text x="23" y="29.5" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="13.5" letter-spacing=".4" fill="#0B1C34">HMC</text></svg>
+        <div><div class="brand-name">Hospital Medicine Consultants</div><div class="brand-sub">NORTHEAST &amp; MID-ATLANTIC INPATIENT PRACTICE</div></div>
       </a>
-
       <nav id="hospital-nav-links" class="header-nav" aria-label="Primary Navigation">
         <a href="#hosp-standards" data-nav-target="hosp-standards" data-nav-role="HOSPITAL">Standards</a>
         <a href="#hosp-deployment" data-nav-target="hosp-deployment" data-nav-role="HOSPITAL">Deployment</a>
         <a href="#hosp-coverage" data-nav-target="hosp-coverage" data-nav-role="HOSPITAL">10-State Footprint</a>
         <a href="#hosp-contact" data-nav-target="hosp-contact" data-nav-role="HOSPITAL">Request Coverage</a>
       </nav>
-
       <nav id="physician-nav-links" class="header-nav hidden" aria-label="Physician Navigation">
         <a href="#phys-footprint" data-nav-target="phys-footprint" data-nav-role="PHYSICIAN">10-State Footprint</a>
         <a href="#phys-jobs" data-nav-target="phys-jobs" data-nav-role="PHYSICIAN">Open Positions</a>
         <a href="#phys-cv" data-nav-target="phys-cv" data-nav-role="PHYSICIAN">Submit CV</a>
       </nav>
-
       <div class="role-pill-switcher" role="tablist" aria-label="Select Role">
         <button type="button" id="pill-hospital" class="role-pill active-hospital" role="tab" aria-selected="true">For Hospitals &amp; Health Systems</button>
         <button type="button" id="pill-physician" class="role-pill" role="tab" aria-selected="false">For Hospitalist Physicians</button>
       </div>
     </div>
   </header>
-
   <main id="hospital-view">
     <section class="hero-stage">
       <div class="container hero-grid">
@@ -254,39 +206,19 @@
         </div>
         <div class="hero-illustration-frame">
           <svg viewBox="0 0 520 410" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Modern Inpatient Hospital Campus Illustration">
-            <defs>
-              <linearGradient id="skyBackdrop" x1="260" y1="0" x2="260" y2="410" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0B1C34"></stop><stop offset="100%" stop-color="#173561"></stop></linearGradient>
-              <linearGradient id="towerGlass" x1="180" y1="65" x2="340" y2="310" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#1E40AF"></stop><stop offset="100%" stop-color="#0F294A"></stop></linearGradient>
-              <linearGradient id="ecgGlow" x1="40" y1="335" x2="480" y2="335" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981" stop-opacity="0.2"></stop><stop offset="50%" stop-color="#10B981" stop-opacity="1"></stop><stop offset="100%" stop-color="#38BDF8" stop-opacity="0.9"></stop></linearGradient>
-            </defs>
+            <defs><linearGradient id="skyBackdrop" x1="260" y1="0" x2="260" y2="410" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0B1C34"></stop><stop offset="100%" stop-color="#173561"></stop></linearGradient><linearGradient id="towerGlass" x1="180" y1="65" x2="340" y2="310" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#1E40AF"></stop><stop offset="100%" stop-color="#0F294A"></stop></linearGradient><linearGradient id="ecgGlow" x1="40" y1="335" x2="480" y2="335" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981" stop-opacity=".2"></stop><stop offset="50%" stop-color="#10B981" stop-opacity="1"></stop><stop offset="100%" stop-color="#38BDF8" stop-opacity=".9"></stop></linearGradient></defs>
             <rect width="520" height="410" rx="8" fill="url(#skyBackdrop)"></rect>
-            <circle cx="260" cy="185" r="155" stroke="#3B82F6" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="5 5"></circle>
-            <circle cx="260" cy="185" r="115" stroke="#10B981" stroke-opacity="0.24" stroke-width="1.5"></circle>
-            <rect x="82" y="145" width="96" height="165" rx="4" fill="#132D52" stroke="#3B82F6" stroke-opacity="0.45" stroke-width="1.5"></rect>
-            <rect x="342" y="145" width="96" height="165" rx="4" fill="#132D52" stroke="#3B82F6" stroke-opacity="0.45" stroke-width="1.5"></rect>
+            <circle cx="260" cy="185" r="155" stroke="#3B82F6" stroke-opacity=".22" stroke-width="1.5" stroke-dasharray="5 5"></circle>
+            <circle cx="260" cy="185" r="115" stroke="#10B981" stroke-opacity=".24" stroke-width="1.5"></circle>
+            <rect x="82" y="145" width="96" height="165" rx="4" fill="#132D52" stroke="#3B82F6" stroke-opacity=".45" stroke-width="1.5"></rect>
+            <rect x="342" y="145" width="96" height="165" rx="4" fill="#132D52" stroke="#3B82F6" stroke-opacity=".45" stroke-width="1.5"></rect>
             <rect x="178" y="68" width="164" height="242" rx="6" fill="url(#towerGlass)" stroke="#60A5FA" stroke-width="1.8"></rect>
             <rect x="236" y="34" width="48" height="44" rx="6" fill="#B91C1C" stroke="#FCA5A5" stroke-width="1.5"></rect>
             <path d="M260 44V68M248 56H272" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"></path>
-            <g fill="#DBEAFE">
-              <rect x="198" y="96" width="32" height="16" rx="2"></rect><rect x="244" y="96" width="32" height="16" rx="2"></rect><rect x="290" y="96" width="32" height="16" rx="2"></rect>
-              <rect x="198" y="124" width="32" height="16" rx="2"></rect><rect x="244" y="124" width="32" height="16" rx="2" fill="#FDE68A"></rect><rect x="290" y="124" width="32" height="16" rx="2"></rect>
-              <rect x="198" y="152" width="32" height="16" rx="2"></rect><rect x="244" y="152" width="32" height="16" rx="2"></rect><rect x="290" y="152" width="32" height="16" rx="2" fill="#A7F3D0"></rect>
-              <rect x="198" y="180" width="32" height="16" rx="2" fill="#FDE68A"></rect><rect x="244" y="180" width="32" height="16" rx="2"></rect><rect x="290" y="180" width="32" height="16" rx="2"></rect>
-            </g>
+            <g fill="#DBEAFE"><rect x="198" y="96" width="32" height="16" rx="2"></rect><rect x="244" y="96" width="32" height="16" rx="2"></rect><rect x="290" y="96" width="32" height="16" rx="2"></rect><rect x="198" y="124" width="32" height="16" rx="2"></rect><rect x="244" y="124" width="32" height="16" rx="2" fill="#FDE68A"></rect><rect x="290" y="124" width="32" height="16" rx="2"></rect><rect x="198" y="152" width="32" height="16" rx="2"></rect><rect x="244" y="152" width="32" height="16" rx="2"></rect><rect x="290" y="152" width="32" height="16" rx="2" fill="#A7F3D0"></rect></g>
             <rect x="218" y="256" width="84" height="54" rx="4" fill="#0B1C34" stroke="#93C5FD" stroke-width="1.4"></rect>
-            <g transform="translate(24, 52)">
-              <rect width="136" height="62" rx="8" fill="#0F2544" stroke="#10B981" stroke-width="1.5"></rect>
-              <circle cx="24" cy="31" r="13" fill="#0F766E"></circle>
-              <path d="M18 31L22 35L30 27" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-              <text x="45" y="26" font-family="monospace" font-size="9.5" font-weight="700" fill="#A7F3D0">BOARD CERTIFIED</text>
-              <text x="45" y="42" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Hospitalist MD/DO</text>
-            </g>
-            <g transform="translate(360, 52)">
-              <rect width="136" height="62" rx="8" fill="#0F2544" stroke="#F59E0B" stroke-width="1.5"></rect>
-              <circle cx="24" cy="31" r="13" fill="#B45309"></circle>
-              <text x="45" y="26" font-family="monospace" font-size="9.5" font-weight="700" fill="#FDE68A">10-STATE ROSTER</text>
-              <text x="45" y="42" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">NE &amp; Mid-Atlantic</text>
-            </g>
+            <g transform="translate(24,52)"><rect width="136" height="62" rx="8" fill="#0F2544" stroke="#10B981" stroke-width="1.5"></rect><circle cx="24" cy="31" r="13" fill="#0F766E"></circle><path d="M18 31L22 35L30 27" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><text x="45" y="26" font-family="monospace" font-size="9.5" font-weight="700" fill="#A7F3D0">BOARD CERTIFIED</text><text x="45" y="42" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Hospitalist MD/DO</text></g>
+            <g transform="translate(360,52)"><rect width="136" height="62" rx="8" fill="#0F2544" stroke="#F59E0B" stroke-width="1.5"></rect><circle cx="24" cy="31" r="13" fill="#B45309"></circle><text x="45" y="26" font-family="monospace" font-size="9.5" font-weight="700" fill="#FDE68A">10-STATE ROSTER</text><text x="45" y="42" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">NE &amp; Mid-Atlantic</text></g>
             <rect x="24" y="324" width="472" height="64" rx="8" fill="#071324" stroke="#1E3A5F" stroke-width="1.5"></rect>
             <text x="40" y="343" font-family="monospace" font-size="9.5" font-weight="700" fill="#60A5FA">INPATIENT TELEMETRY &bull; RAPID PRIVILEGING READY</text>
             <path d="M40 366 H145 L156 352 L168 378 L180 342 L192 374 L202 366 H310 L321 352 L333 378 L345 342 L357 374 L367 366 H480" stroke="url(#ecgGlow)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
@@ -294,93 +226,34 @@
         </div>
       </div>
     </section>
-
     <section id="hosp-standards" class="band-alabaster">
       <div class="container">
-        <div class="section-head">
-          <span class="section-tag">Core Practice Standards</span>
-          <h2 class="section-title">Built Exclusively for Inpatient Hospitalist Medicine</h2>
-          <p class="section-subtitle">Physician-governed clinical quality, dedicated regional focus, and rapid hospital privileging across the Northeast &amp; Mid-Atlantic.</p>
-        </div>
+        <div class="section-head"><span class="section-tag">Core Practice Standards</span><h2 class="section-title">Built Exclusively for Inpatient Hospitalist Medicine</h2><p class="section-subtitle">Physician-governed clinical quality, dedicated regional focus, and rapid hospital privileging across the Northeast &amp; Mid-Atlantic.</p></div>
         <div class="standards-cards-grid">
-          <article class="graphic-standard-card">
-            <div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#0B1C34"></rect><circle cx="455" cy="67" r="46" fill="#B91C1C" stroke="#FCA5A5" stroke-width="1.5"></circle><path d="M455 51V83M439 67H471" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#FCA5A5">100% INPATIENT FOCUS</text></svg></div>
-            <div class="card-scene-body">
-              <div class="card-accent-label" style="color:var(--crimson);">Clinical Specialization</div>
-              <h3 class="card-scene-title">Exclusively Focused on Hospitalist Medicine</h3>
-              <p class="card-scene-text">Every clinician we represent practices dedicated inpatient Hospitalist Medicine&mdash;experienced in high-acuity rounding, admissions, ICU co-management, and multidisciplinary discharge workflows.</p>
-            </div>
-          </article>
-          <article class="graphic-standard-card">
-            <div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#1E3A8A"></rect><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#DBEAFE">10 REGIONAL STATES</text><text x="48" y="88" font-family="monospace" font-size="12" font-weight="700" fill="#FFFFFF">NY &bull; NJ &bull; CT &bull; PA &bull; MA &bull; NH &bull; ME &bull; RI &bull; VT &bull; DE</text></svg></div>
-            <div class="card-scene-body">
-              <div class="card-accent-label" style="color:var(--cobalt);">Geographic Concentration</div>
-              <h3 class="card-scene-title">Exclusively Northeast &amp; Mid-Atlantic USA</h3>
-              <p class="card-scene-text">Exclusively operates in Northeast and Mid-Atlantic USA (NY, NJ, CT, PA, MA, NH, ME, RI, VT, DE), giving hospitals direct access to regional peer networks and multi-state IMLC clinicians.</p>
-            </div>
-          </article>
-          <article class="graphic-standard-card">
-            <div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#115E59"></rect><circle cx="432" cy="67" r="24" fill="#10B981"></circle><path d="M422 67L429 74L443 60" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#A7F3D0">PRE-VERIFIED CREDENTIALS</text></svg></div>
-            <div class="card-scene-body">
-              <div class="card-accent-label" style="color:var(--emerald);">Rapid Deployment</div>
-              <h3 class="card-scene-title">Fastest Assignment Filling &amp; Rapid Privileging</h3>
-              <p class="card-scene-text">Fastest assignment filling through our ready-to-deploy Hospitalists across the Northeast USA. Peer-vetted, board-certified Hospitalists ready for rapid privileging.</p>
-            </div>
-          </article>
-          <article class="graphic-standard-card">
-            <div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#78350F"></rect><path d="M432 22L472 36V66C472 91 455 106 432 114C409 106 392 91 392 66V36L432 22Z" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2.5"></path><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#FDE68A">INSTITUTIONAL PROTECTION</text></svg></div>
-            <div class="card-scene-body">
-              <div class="card-accent-label" style="color:var(--amber);">Liability Assurance</div>
-              <h3 class="card-scene-title">Full Tail Malpractice Protection</h3>
-              <p class="card-scene-text">Full tail malpractice insurance covered on every placement, ensuring seamless institutional risk protection and peace of mind for both health systems and Hospitalists.</p>
-            </div>
-          </article>
+          <article class="graphic-standard-card"><div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#0B1C34"></rect><circle cx="455" cy="67" r="46" fill="#B91C1C" stroke="#FCA5A5" stroke-width="1.5"></circle><path d="M455 51V83M439 67H471" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#FCA5A5">100% INPATIENT FOCUS</text></svg></div><div class="card-scene-body"><div class="card-accent-label" style="color:var(--crimson)">Clinical Specialization</div><h3 class="card-scene-title">Exclusively Focused on Hospitalist Medicine</h3><p class="card-scene-text">Every clinician we represent practices dedicated inpatient Hospitalist Medicine&mdash;experienced in high-acuity rounding, admissions, ICU co-management, and multidisciplinary discharge workflows.</p></div></article>
+          <article class="graphic-standard-card"><div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#1E3A8A"></rect><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#DBEAFE">10 REGIONAL STATES</text><text x="48" y="88" font-family="monospace" font-size="12" font-weight="700" fill="#FFFFFF">NY &bull; NJ &bull; CT &bull; PA &bull; MA &bull; NH &bull; ME &bull; RI &bull; VT &bull; DE</text></svg></div><div class="card-scene-body"><div class="card-accent-label" style="color:var(--cobalt)">Geographic Concentration</div><h3 class="card-scene-title">Exclusively Northeast &amp; Mid-Atlantic USA</h3><p class="card-scene-text">Exclusively operates in Northeast and Mid-Atlantic USA (NY, NJ, CT, PA, MA, NH, ME, RI, VT, DE), giving hospitals direct access to regional peer networks and multi-state IMLC clinicians.</p></div></article>
+          <article class="graphic-standard-card"><div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#115E59"></rect><circle cx="432" cy="67" r="24" fill="#10B981"></circle><path d="M422 67L429 74L443 60" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#A7F3D0">PRE-VERIFIED CREDENTIALS</text></svg></div><div class="card-scene-body"><div class="card-accent-label" style="color:var(--emerald)">Rapid Deployment</div><h3 class="card-scene-title">Fastest Assignment Filling &amp; Rapid Privileging</h3><p class="card-scene-text">Fastest assignment filling through our ready-to-deploy Hospitalists across the Northeast USA. Peer-vetted, board-certified Hospitalists ready for rapid privileging.</p></div></article>
+          <article class="graphic-standard-card"><div class="card-scene-header"><svg viewBox="0 0 540 134" preserveAspectRatio="xMidYMid slice"><rect width="540" height="134" fill="#78350F"></rect><path d="M432 22L472 36V66C472 91 455 106 432 114C409 106 392 91 392 66V36L432 22Z" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2.5"></path><text x="48" y="44" font-family="monospace" font-size="11" font-weight="700" fill="#FDE68A">INSTITUTIONAL PROTECTION</text></svg></div><div class="card-scene-body"><div class="card-accent-label" style="color:var(--amber)">Liability Assurance</div><h3 class="card-scene-title">Full Tail Malpractice Protection</h3><p class="card-scene-text">Full tail malpractice insurance covered on every placement, ensuring seamless institutional risk protection and peace of mind for both health systems and Hospitalists.</p></div></article>
         </div>
       </div>
     </section>
-
     <section id="hosp-deployment" class="band-ice">
       <div class="container">
-        <div class="section-head centered">
-          <span class="section-tag emerald-tag">3-Stage Rapid Deployment Pipeline</span>
-          <h2 class="section-title">From Clinical Shift Brief to Bedside Admission</h2>
-          <p class="section-subtitle">Direct physician-to-physician coordination eliminates non-clinical delays and accelerates medical staff privileging.</p>
-        </div>
+        <div class="section-head centered"><span class="section-tag emerald-tag">3-Stage Rapid Deployment Pipeline</span><h2 class="section-title">From Clinical Shift Brief to Bedside Admission</h2><p class="section-subtitle">Direct physician-to-physician coordination eliminates non-clinical delays and accelerates medical staff privileging.</p></div>
         <div class="pipeline-grid">
-          <div class="pipeline-stage-card">
-            <div class="stage-medallion" style="background-color:var(--cobalt-soft); border:2px solid var(--cobalt);"><span class="mono" style="font-weight:700; color:var(--cobalt);">01</span></div>
-            <span class="stage-step-chip" style="background-color:var(--cobalt-soft); color:var(--cobalt);">STAGE 01</span>
-            <h3 class="pipeline-title">Direct Clinical Shift Brief</h3>
-            <p class="pipeline-desc">Practicing Hospitalist leadership reviews your inpatient census, shift hours, ICU co-management model, and target coverage dates directly.</p>
-          </div>
-          <div class="pipeline-stage-card">
-            <div class="stage-medallion" style="background-color:var(--crimson-soft); border:2px solid var(--crimson);"><span class="mono" style="font-weight:700; color:var(--crimson);">02</span></div>
-            <span class="stage-step-chip" style="background-color:var(--crimson-soft); color:var(--crimson);">STAGE 02</span>
-            <h3 class="pipeline-title">Peer-Vetted Hospitalist Matching</h3>
-            <p class="pipeline-desc">We match your service with peer-vetted, board-certified Hospitalists already licensed in your state and ready for rapid privileging.</p>
-          </div>
-          <div class="pipeline-stage-card">
-            <div class="stage-medallion" style="background-color:var(--emerald-soft); border:2px solid var(--emerald);"><span class="mono" style="font-weight:700; color:var(--emerald);">03</span></div>
-            <span class="stage-step-chip" style="background-color:var(--emerald-soft); color:var(--emerald);">STAGE 03</span>
-            <h3 class="pipeline-title">Accelerated Privileging &amp; Bedside Care</h3>
-            <p class="pipeline-desc">Pre-assembled primary source files and full tail malpractice coverage enable swift onboarding and seamless inpatient continuity.</p>
-          </div>
+          <div class="pipeline-stage-card"><div class="stage-medallion" style="background-color:var(--cobalt-soft);border:2px solid var(--cobalt)"><span class="mono" style="font-weight:700;color:var(--cobalt)">01</span></div><span class="stage-step-chip" style="background-color:var(--cobalt-soft);color:var(--cobalt)">STAGE 01</span><h3 class="pipeline-title">Direct Clinical Shift Brief</h3><p class="pipeline-desc">Practicing Hospitalist leadership reviews your inpatient census, shift hours, ICU co-management model, and target coverage dates directly.</p></div>
+          <div class="pipeline-stage-card"><div class="stage-medallion" style="background-color:var(--crimson-soft);border:2px solid var(--crimson)"><span class="mono" style="font-weight:700;color:var(--crimson)">02</span></div><span class="stage-step-chip" style="background-color:var(--crimson-soft);color:var(--crimson)">STAGE 02</span><h3 class="pipeline-title">Peer-Vetted Hospitalist Matching</h3><p class="pipeline-desc">We match your service with peer-vetted, board-certified Hospitalists already licensed in your state and ready for rapid privileging.</p></div>
+          <div class="pipeline-stage-card"><div class="stage-medallion" style="background-color:var(--emerald-soft);border:2px solid var(--emerald)"><span class="mono" style="font-weight:700;color:var(--emerald)">03</span></div><span class="stage-step-chip" style="background-color:var(--emerald-soft);color:var(--emerald)">STAGE 03</span><h3 class="pipeline-title">Accelerated Privileging &amp; Bedside Care</h3><p class="pipeline-desc">Pre-assembled primary source files and full tail malpractice coverage enable swift onboarding and seamless inpatient continuity.</p></div>
         </div>
       </div>
     </section>
-
     <section id="hosp-coverage" class="band-alabaster">
       <div class="container">
-        <div class="section-head">
-          <span class="section-tag">10-State Northeast &amp; Mid-Atlantic Footprint</span>
-          <h2 class="section-title">Interactive Regional Coverage Map Studio</h2>
-          <p class="section-subtitle">Click any state on the topographic map or selector bar to inspect licensing pathways, clinical settings, and active Hospitalist coverage readiness across NY, NJ, CT, PA, MA, NH, ME, RI, VT, and DE.</p>
-        </div>
+        <div class="section-head"><span class="section-tag">10-State Northeast &amp; Mid-Atlantic Footprint</span><h2 class="section-title">Interactive Regional Coverage Map Studio</h2><p class="section-subtitle">Click any state on the topographic map or selector bar to inspect licensing pathways, clinical settings, and active Hospitalist coverage readiness across NY, NJ, CT, PA, MA, NH, ME, RI, VT, and DE.</p></div>
         <div class="map-studio-grid">
           <div class="map-canvas-card">
             <svg class="topographic-svg" viewBox="0 0 540 430" role="img" aria-label="Interactive 10-State Coverage Map">
-              <text x="445" y="315" font-family="monospace" font-size="11" font-weight="700" fill="#64748B" letter-spacing="2">ATLANTIC</text>
-              <text x="453" y="330" font-family="monospace" font-size="11" font-weight="700" fill="#64748B" letter-spacing="2">OCEAN</text>
+              <text x="445" y="315" font-family="monospace" font-size="11" font-weight="700" fill="#64748B" letter-spacing="2">ATLANTIC</text><text x="453" y="330" font-family="monospace" font-size="11" font-weight="700" fill="#64748B" letter-spacing="2">OCEAN</text>
               <path id="hosp-poly-PA" class="region-state-poly" data-state="PA" fill="#BFDBFE" d="M38,235 L175,220 L185,296 L44,306 Z"></path><text id="hosp-txt-PA" class="map-code-text" x="112" y="268">PA</text>
               <path id="hosp-poly-NY" class="region-state-poly selected" data-state="NY" fill="#93C5FD" d="M124,130 L245,94 L276,180 L256,225 L175,220 L124,195 Z"></path><text id="hosp-txt-NY" class="map-code-text selected-text" x="202" y="168">NY</text>
               <path id="hosp-poly-NJ" class="region-state-poly" data-state="NJ" fill="#99F6E4" d="M185,230 L226,225 L231,306 L190,311 Z"></path><text id="hosp-txt-NJ" class="map-code-text" x="208" y="272">NJ</text>
@@ -394,39 +267,22 @@
               <circle id="hosp-radar-ring" class="radar-ring" cx="202" cy="164" r="14"></circle>
             </svg>
           </div>
-          <div>
-            <div class="state-quick-grid" id="hosp-state-buttons"></div>
-            <div class="state-detail-card" id="hosp-state-profile"></div>
-          </div>
+          <div><div class="state-quick-grid" id="hosp-state-buttons"></div><div class="state-detail-card" id="hosp-state-profile"></div></div>
         </div>
       </div>
     </section>
-
     <section id="hosp-contact" class="band-white">
       <div class="container">
         <div class="dispatch-studio-card">
           <div class="dispatch-visual-pane">
-            <svg width="100%" height="260" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Physician Leadership Dispatch Studio">
-              <rect x="16" y="16" width="328" height="228" rx="12" fill="#0B1C34" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1.5"></rect>
-              <rect x="34" y="34" width="292" height="36" rx="6" fill="#142D52"></rect>
-              <circle cx="52" cy="52" r="5" fill="#10B981"></circle>
-              <text x="66" y="56" font-family="monospace" font-size="10.5" font-weight="700" fill="#FFFFFF">PHYSICIAN LEADERSHIP DISPATCH</text>
-              <rect x="64" y="90" width="232" height="84" rx="8" fill="#102544" stroke="#60A5FA" stroke-width="1.5"></rect>
-              <path d="M68 94L180 144L292 94" stroke="#93C5FD" stroke-width="2" fill="none"></path>
-              <circle cx="278" cy="162" r="22" fill="#B91C1C" stroke="#FCA5A5" stroke-width="2"></circle>
-              <path d="M278 153V171M269 162H287" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path>
-              <rect x="34" y="192" width="138" height="32" rx="6" fill="rgba(16,185,129,0.16)" stroke="#10B981" stroke-width="1.2"></rect>
-              <text x="103" y="212" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="700" fill="#A7F3D0">10-STATE COVERAGE</text>
-              <rect x="188" y="192" width="138" height="32" rx="6" fill="rgba(245,158,11,0.16)" stroke="#F59E0B" stroke-width="1.2"></rect>
-              <text x="257" y="212" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="700" fill="#FDE68A">FULL TAIL COVERED</text>
-            </svg>
+            <svg width="100%" height="260" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Physician Leadership Dispatch Studio"><rect x="16" y="16" width="328" height="228" rx="12" fill="#0B1C34" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"></rect><rect x="34" y="34" width="292" height="36" rx="6" fill="#142D52"></rect><circle cx="52" cy="52" r="5" fill="#10B981"></circle><text x="66" y="56" font-family="monospace" font-size="10.5" font-weight="700" fill="#FFFFFF">PHYSICIAN LEADERSHIP DISPATCH</text><rect x="64" y="90" width="232" height="84" rx="8" fill="#102544" stroke="#60A5FA" stroke-width="1.5"></rect><path d="M68 94L180 144L292 94" stroke="#93C5FD" stroke-width="2" fill="none"></path><circle cx="278" cy="162" r="22" fill="#B91C1C" stroke="#FCA5A5" stroke-width="2"></circle><path d="M278 153V171M269 162H287" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><rect x="34" y="192" width="138" height="32" rx="6" fill="rgba(16,185,129,.16)" stroke="#10B981" stroke-width="1.2"></rect><text x="103" y="212" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="700" fill="#A7F3D0">10-STATE COVERAGE</text><rect x="188" y="192" width="138" height="32" rx="6" fill="rgba(245,158,11,.16)" stroke="#F59E0B" stroke-width="1.2"></rect><text x="257" y="212" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="700" fill="#FDE68A">FULL TAIL COVERED</text></svg>
           </div>
           <div class="dispatch-controls-pane">
-            <span class="mono" style="font-size:0.74rem; font-weight:700; letter-spacing:0.08em; color:#93C5FD; text-transform:uppercase;">Direct Physician Leadership Desk</span>
-            <h2 class="serif" style="font-size:2rem; font-weight:400; color:#FFFFFF; margin-top:0.45rem; line-height:1.2;">Request Hospitalist Coverage</h2>
-            <p style="font-size:0.96rem; color:#CBD5E1; margin-top:0.65rem;">Connect directly with our practicing Hospitalist leadership to arrange rapid inpatient coverage across NY, NJ, CT, PA, MA, NH, ME, RI, VT, or DE.</p>
+            <span class="mono" style="font-size:.74rem;font-weight:700;letter-spacing:.08em;color:#93C5FD;text-transform:uppercase">Direct Physician Leadership Desk</span>
+            <h2 class="serif" style="font-size:2rem;font-weight:400;color:#fff;margin-top:.45rem;line-height:1.2">Request Hospitalist Coverage</h2>
+            <p style="font-size:.96rem;color:#CBD5E1;margin-top:.65rem">Connect directly with our practicing Hospitalist leadership to arrange rapid inpatient coverage across NY, NJ, CT, PA, MA, NH, ME, RI, VT, or DE.</p>
             <div class="email-display-bar">
-              <a href="mailto:info@hospitalmedicineconsultants.com?subject=Hospitalist%20Coverage%20Request" class="js-email-trigger mono" data-subject="Hospitalist Coverage Request" style="font-size:0.95rem; font-weight:700; color:#A7F3D0; text-decoration:underline; word-break:break-all;">info@hospitalmedicineconsultants.com</a>
+              <a href="mailto:info@hospitalmedicineconsultants.com?subject=Hospitalist%20Coverage%20Request" class="js-email-trigger mono" data-subject="Hospitalist Coverage Request" style="font-size:.95rem;font-weight:700;color:#A7F3D0;text-decoration:underline;word-break:break-all">info@hospitalmedicineconsultants.com</a>
               <button type="button" id="copy-address-btn" class="btn btn-white btn-sm">Copy Email Address</button>
             </div>
             <div class="webmail-btn-group">
@@ -439,12 +295,11 @@
       </div>
     </section>
   </main>
-
   <div id="physician-view" class="hidden">
-    <section class="hero-stage" style="background: linear-gradient(135deg, #0B1C34 0%, #0E3A42 62%, #0F766E 100%);">
+    <section class="hero-stage" style="background:linear-gradient(135deg,#0B1C34 0%,#0E3A42 62%,#0F766E 100%)">
       <div class="container hero-grid">
         <div>
-          <div class="hero-eyebrow" style="border-color:rgba(167,243,208,0.35); color:#A7F3D0;"><span class="pulse-dot"></span><span>For Board-Certified &amp; Board-Eligible Hospitalists</span></div>
+          <div class="hero-eyebrow" style="border-color:rgba(167,243,208,.35);color:#A7F3D0"><span class="pulse-dot"></span><span>For Board-Certified &amp; Board-Eligible Hospitalists</span></div>
           <h1 class="hero-headline">Physician-Led Hospitalist Opportunities Across 10 Northeast &amp; Mid-Atlantic States</h1>
           <p class="hero-subcopy">Exclusively focused on Hospitalist Medicine across NY, NJ, CT, PA, MA, NH, ME, RI, VT, and DE. Peer-vetted, board-certified Hospitalists ready for rapid privileging. Every assignment includes transparent clinical shift expectations and full tail malpractice insurance covered.</p>
           <div class="hero-cta-row">
@@ -454,40 +309,15 @@
         </div>
         <div class="hero-illustration-frame">
           <svg viewBox="0 0 500 370" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Multi-State Hospitalist Clinical Passport">
-            <rect width="500" height="370" rx="10" fill="#08182B"></rect>
-            <rect x="42" y="34" width="416" height="302" rx="12" fill="#0F2642" stroke="#34D399" stroke-width="1.6"></rect>
-            <rect x="42" y="34" width="416" height="52" rx="12" fill="#0F766E"></rect>
-            <text x="66" y="65" font-family="monospace" font-size="12" font-weight="700" fill="#FFFFFF">HOSPITALIST CLINICAL PASSPORT &bull; 10 STATES</text>
-            <circle cx="112" cy="154" r="40" fill="#142D52" stroke="#5EEAD4" stroke-width="2"></circle>
-            <path d="M112 136V172M94 154H130" stroke="#10B981" stroke-width="5" stroke-linecap="round"></path>
-            <text x="174" y="132" font-family="serif" font-size="18" font-weight="700" fill="#FFFFFF">Board-Certified Hospitalist</text>
-            <text x="174" y="154" font-family="sans-serif" font-size="12" fill="#CBD5E1">ABIM / AOBIM &bull; Inpatient Acute Care</text>
-            <rect x="174" y="168" width="184" height="26" rx="5" fill="rgba(245,158,11,0.18)" stroke="#F59E0B" stroke-width="1.2"></rect>
-            <text x="266" y="185" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#FDE68A">FULL TAIL MALPRACTICE COVERED</text>
-            <g font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">
-              <rect x="66" y="242" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="99" y="260" fill="#FFFFFF">NY</text>
-              <rect x="142" y="242" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="175" y="260" fill="#FFFFFF">NJ</text>
-              <rect x="218" y="242" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="251" y="260" fill="#FFFFFF">CT</text>
-              <rect x="294" y="242" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="327" y="260" fill="#FFFFFF">PA</text>
-              <rect x="370" y="242" width="66" height="28" rx="5" fill="#B91C1C"></rect><text x="403" y="260" fill="#FFFFFF">MA</text>
-              <rect x="66" y="280" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="99" y="298" fill="#FFFFFF">NH</text>
-              <rect x="142" y="280" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="175" y="298" fill="#FFFFFF">ME</text>
-              <rect x="218" y="280" width="66" height="28" rx="5" fill="#B45309"></rect><text x="251" y="298" fill="#FFFFFF">RI</text>
-              <rect x="294" y="280" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="327" y="298" fill="#FFFFFF">VT</text>
-              <rect x="370" y="280" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="403" y="298" fill="#FFFFFF">DE</text>
-            </g>
+            <rect width="500" height="370" rx="10" fill="#08182B"></rect><rect x="42" y="34" width="416" height="302" rx="12" fill="#0F2642" stroke="#34D399" stroke-width="1.6"></rect><rect x="42" y="34" width="416" height="52" rx="12" fill="#0F766E"></rect><text x="66" y="65" font-family="monospace" font-size="12" font-weight="700" fill="#FFFFFF">HOSPITALIST CLINICAL PASSPORT &bull; 10 STATES</text><circle cx="112" cy="154" r="40" fill="#142D52" stroke="#5EEAD4" stroke-width="2"></circle><path d="M112 136V172M94 154H130" stroke="#10B981" stroke-width="5" stroke-linecap="round"></path><text x="174" y="132" font-family="serif" font-size="18" font-weight="700" fill="#FFFFFF">Board-Certified Hospitalist</text><text x="174" y="154" font-family="sans-serif" font-size="12" fill="#CBD5E1">ABIM / AOBIM &bull; Inpatient Acute Care</text><rect x="174" y="168" width="184" height="26" rx="5" fill="rgba(245,158,11,.18)" stroke="#F59E0B" stroke-width="1.2"></rect><text x="266" y="185" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#FDE68A">FULL TAIL MALPRACTICE COVERED</text>
+            <g font-family="monospace" font-size="11" font-weight="700" text-anchor="middle"><rect x="66" y="242" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="99" y="260" fill="#FFFFFF">NY</text><rect x="142" y="242" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="175" y="260" fill="#FFFFFF">NJ</text><rect x="218" y="242" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="251" y="260" fill="#FFFFFF">CT</text><rect x="294" y="242" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="327" y="260" fill="#FFFFFF">PA</text><rect x="370" y="242" width="66" height="28" rx="5" fill="#B91C1C"></rect><text x="403" y="260" fill="#FFFFFF">MA</text><rect x="66" y="280" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="99" y="298" fill="#FFFFFF">NH</text><rect x="142" y="280" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="175" y="298" fill="#FFFFFF">ME</text><rect x="218" y="280" width="66" height="28" rx="5" fill="#B45309"></rect><text x="251" y="298" fill="#FFFFFF">RI</text><rect x="294" y="280" width="66" height="28" rx="5" fill="#1D4ED8"></rect><text x="327" y="298" fill="#FFFFFF">VT</text><rect x="370" y="280" width="66" height="28" rx="5" fill="#0F766E"></rect><text x="403" y="298" fill="#FFFFFF">DE</text></g>
           </svg>
         </div>
       </div>
     </section>
-
     <section id="phys-footprint" class="band-alabaster">
       <div class="container">
-        <div class="section-head">
-          <span class="section-tag emerald-tag">10-State Regional Footprint</span>
-          <h2 class="section-title">Northeast &amp; Mid-Atlantic Hospitalist Practice Map</h2>
-          <p class="section-subtitle">Explore licensing pathways (including IMLC Compact states) and inpatient practice settings across NY, NJ, CT, PA, MA, NH, ME, RI, VT, and DE.</p>
-        </div>
+        <div class="section-head"><span class="section-tag emerald-tag">10-State Regional Footprint</span><h2 class="section-title">Northeast &amp; Mid-Atlantic Hospitalist Practice Map</h2><p class="section-subtitle">Explore licensing pathways (including IMLC Compact states) and inpatient practice settings across NY, NJ, CT, PA, MA, NH, ME, RI, VT, and DE.</p></div>
         <div class="map-studio-grid">
           <div class="map-canvas-card">
             <svg class="topographic-svg" viewBox="0 0 540 430" role="img" aria-label="Interactive 10-State Practice Map">
@@ -504,54 +334,26 @@
               <circle id="phys-radar-ring" class="radar-ring" cx="202" cy="164" r="14"></circle>
             </svg>
           </div>
-          <div>
-            <div class="state-quick-grid" id="phys-state-buttons"></div>
-            <div class="state-detail-card" style="border-top-color:var(--emerald);" id="phys-state-profile"></div>
-          </div>
+          <div><div class="state-quick-grid" id="phys-state-buttons"></div><div class="state-detail-card" style="border-top-color:var(--emerald)" id="phys-state-profile"></div></div>
         </div>
       </div>
     </section>
-
     <section id="phys-jobs" class="band-ice">
       <div class="container">
-        <div class="section-head">
-          <span class="section-tag emerald-tag">Active Regional Assignments</span>
-          <h2 class="section-title">Open Hospitalist Positions</h2>
-          <p class="section-subtitle">Filter Day, Nocturnist, and Swing Hospitalist openings across NY, NJ, CT, PA, MA, NH, ME, RI, VT, and DE. Every position includes full tail malpractice insurance covered.</p>
-        </div>
+        <div class="section-head"><span class="section-tag emerald-tag">Active Regional Assignments</span><h2 class="section-title">Open Hospitalist Positions</h2><p class="section-subtitle">Filter Day, Nocturnist, and Swing Hospitalist openings across NY, NJ, CT, PA, MA, NH, ME, RI, VT, and DE. Every position includes full tail malpractice insurance covered.</p></div>
         <div class="filter-card">
-          <div class="field-wrap">
-            <label for="filter-state">State</label>
-            <select id="filter-state" class="ui-input">
-              <option value="ALL">All 10 States</option><option value="NY">New York (NY)</option><option value="NJ">New Jersey (NJ)</option><option value="CT">Connecticut (CT)</option><option value="PA">Pennsylvania (PA)</option><option value="MA">Massachusetts (MA)</option><option value="NH">New Hampshire (NH)</option><option value="ME">Maine (ME)</option><option value="RI">Rhode Island (RI)</option><option value="VT">Vermont (VT)</option><option value="DE">Delaware (DE)</option>
-            </select>
-          </div>
-          <div class="field-wrap">
-            <label for="filter-shift">Shift Schedule</label>
-            <select id="filter-shift" class="ui-input">
-              <option value="ALL">All Shift Types</option><option value="Day">Day Hospitalist</option><option value="Nocturnist">Nocturnist</option><option value="Swing">Swing / Admitter</option>
-            </select>
-          </div>
-          <div class="field-wrap">
-            <label for="filter-setting">Hospital Setting</label>
-            <select id="filter-setting" class="ui-input">
-              <option value="ALL">All Settings</option><option value="Community">Community Hospital</option><option value="Academic/Teaching">Academic / Teaching</option><option value="Critical Access">Critical Access / Rural</option>
-            </select>
-          </div>
-          <div class="field-wrap"><button type="button" id="reset-filters-btn" class="btn btn-outline" style="width:100%;">Reset Filters</button></div>
+          <div class="field-wrap"><label for="filter-state">State</label><select id="filter-state" class="ui-input"><option value="ALL">All 10 States</option><option value="NY">New York (NY)</option><option value="NJ">New Jersey (NJ)</option><option value="CT">Connecticut (CT)</option><option value="PA">Pennsylvania (PA)</option><option value="MA">Massachusetts (MA)</option><option value="NH">New Hampshire (NH)</option><option value="ME">Maine (ME)</option><option value="RI">Rhode Island (RI)</option><option value="VT">Vermont (VT)</option><option value="DE">Delaware (DE)</option></select></div>
+          <div class="field-wrap"><label for="filter-shift">Shift Schedule</label><select id="filter-shift" class="ui-input"><option value="ALL">All Shift Types</option><option value="Day">Day Hospitalist</option><option value="Nocturnist">Nocturnist</option><option value="Swing">Swing / Admitter</option></select></div>
+          <div class="field-wrap"><label for="filter-setting">Hospital Setting</label><select id="filter-setting" class="ui-input"><option value="ALL">All Settings</option><option value="Community">Community Hospital</option><option value="Academic/Teaching">Academic / Teaching</option><option value="Critical Access">Critical Access / Rural</option></select></div>
+          <div class="field-wrap"><button type="button" id="reset-filters-btn" class="btn btn-outline" style="width:100%">Reset Filters</button></div>
         </div>
-        <div id="jobs-count-text" class="mono" style="font-size:0.78rem; font-weight:700; color:var(--ink-muted); margin-bottom:0.85rem;"></div>
+        <div id="jobs-count-text" class="mono" style="font-size:.78rem;font-weight:700;color:var(--ink-muted);margin-bottom:.85rem"></div>
         <div class="jobs-visual-grid" id="jobs-cards-container"></div>
       </div>
     </section>
-
     <section id="phys-cv" class="band-white">
       <div class="container">
-        <div class="section-head centered">
-          <span class="section-tag emerald-tag">Hospitalist Credentialing Studio</span>
-          <h2 class="section-title">Submit Your CV &amp; Active State Licenses</h2>
-          <p class="section-subtitle">Upload your Curriculum Vitae directly to our physician leadership credentials vault for rapid privileging across our 10-state Northeast &amp; Mid-Atlantic footprint.</p>
-        </div>
+        <div class="section-head centered"><span class="section-tag emerald-tag">Hospitalist Credentialing Studio</span><h2 class="section-title">Submit Your CV &amp; Active State Licenses</h2><p class="section-subtitle">Upload your Curriculum Vitae directly to our physician leadership credentials vault for rapid privileging across our 10-state Northeast &amp; Mid-Atlantic footprint.</p></div>
         <form id="cv-submission-form" class="cv-studio-card" novalidate>
           <div class="form-2col">
             <div class="field-wrap"><label for="phys-fullname">Full Name &amp; Credentials *</label><input type="text" id="phys-fullname" class="ui-input" placeholder="Full Name, MD / DO" required></div>
@@ -559,434 +361,109 @@
           </div>
           <div class="form-2col">
             <div class="field-wrap"><label for="phys-phone">Direct Phone Number *</label><input type="tel" id="phys-phone" class="ui-input" placeholder="(555) 234-5678" required></div>
-            <div class="field-wrap">
-              <label for="phys-board">Board Certification Status *</label>
-              <select id="phys-board" class="ui-input" required>
-                <option value="ABIM Board Certified">ABIM Board Certified (Internal Medicine)</option>
-                <option value="AOBIM Board Certified">AOBIM Board Certified (Internal Medicine)</option>
-                <option value="ABFM Board Certified">ABFM Board Certified (Hospitalist Medicine Experience)</option>
-                <option value="Board Eligible">Board Eligible (Recent Residency Graduate)</option>
-              </select>
-            </div>
+            <div class="field-wrap"><label for="phys-board">Board Certification Status *</label><select id="phys-board" class="ui-input" required><option value="ABIM Board Certified">ABIM Board Certified (Internal Medicine)</option><option value="AOBIM Board Certified">AOBIM Board Certified (Internal Medicine)</option><option value="ABFM Board Certified">ABFM Board Certified (Hospitalist Medicine Experience)</option><option value="Board Eligible">Board Eligible (Recent Residency Graduate)</option></select></div>
           </div>
           <div class="form-2col">
-            <div class="field-wrap">
-              <label for="phys-shift">Preferred Shift Schedule</label>
-              <select id="phys-shift" class="ui-input">
-                <option value="Day Hospitalist (7a-7p)">Day Hospitalist (7a&ndash;7p)</option>
-                <option value="Nocturnist (7p-7a)">Nocturnist (7p&ndash;7a)</option>
-                <option value="Swing / Admitter">Swing / Admitter</option>
-                <option value="Flexible / Open to All">Flexible / Open to All</option>
-              </select>
-            </div>
+            <div class="field-wrap"><label for="phys-shift">Preferred Shift Schedule</label><select id="phys-shift" class="ui-input"><option value="Day Hospitalist (7a-7p)">Day Hospitalist (7a&ndash;7p)</option><option value="Nocturnist (7p-7a)">Nocturnist (7p&ndash;7a)</option><option value="Swing / Admitter">Swing / Admitter</option><option value="Flexible / Open to All">Flexible / Open to All</option></select></div>
             <div class="field-wrap"><label for="phys-job-ref">Target Assignment ID / Position (Optional)</label><input type="text" id="phys-job-ref" class="ui-input" placeholder="e.g., JOB-NY-101 or General Roster"></div>
           </div>
-          <div class="field-wrap" style="margin-bottom:1.1rem;">
+          <div class="field-wrap" style="margin-bottom:1.1rem">
             <label>Active State Medical Licenses</label>
             <div id="phys-licenses" class="license-pill-list">
-              <label class="license-check-pill"><input type="checkbox" value="NY"> NY</label>
-              <label class="license-check-pill"><input type="checkbox" value="NJ"> NJ</label>
-              <label class="license-check-pill"><input type="checkbox" value="CT"> CT</label>
-              <label class="license-check-pill"><input type="checkbox" value="PA"> PA</label>
-              <label class="license-check-pill"><input type="checkbox" value="MA"> MA</label>
-              <label class="license-check-pill"><input type="checkbox" value="NH"> NH</label>
-              <label class="license-check-pill"><input type="checkbox" value="ME"> ME</label>
-              <label class="license-check-pill"><input type="checkbox" value="RI"> RI</label>
-              <label class="license-check-pill"><input type="checkbox" value="VT"> VT</label>
-              <label class="license-check-pill"><input type="checkbox" value="DE"> DE</label>
+              <label class="license-check-pill"><input type="checkbox" value="NY"> NY</label><label class="license-check-pill"><input type="checkbox" value="NJ"> NJ</label><label class="license-check-pill"><input type="checkbox" value="CT"> CT</label><label class="license-check-pill"><input type="checkbox" value="PA"> PA</label><label class="license-check-pill"><input type="checkbox" value="MA"> MA</label><label class="license-check-pill"><input type="checkbox" value="NH"> NH</label><label class="license-check-pill"><input type="checkbox" value="ME"> ME</label><label class="license-check-pill"><input type="checkbox" value="RI"> RI</label><label class="license-check-pill"><input type="checkbox" value="VT"> VT</label><label class="license-check-pill"><input type="checkbox" value="DE"> DE</label>
             </div>
           </div>
-          <div class="field-wrap" style="margin-bottom:1.1rem;"><label for="phys-notes">Clinical Availability &amp; Preferences (Optional)</label><textarea id="phys-notes" class="ui-input" rows="3" placeholder="Target start date, block schedule availability, or ICU/procedural preferences..."></textarea></div>
-          <div class="field-wrap" style="margin-bottom:1.4rem;">
+          <div class="field-wrap" style="margin-bottom:1.1rem"><label for="phys-notes">Clinical Availability &amp; Preferences (Optional)</label><textarea id="phys-notes" class="ui-input" rows="3" placeholder="Target start date, block schedule availability, or ICU/procedural preferences..."></textarea></div>
+          <div class="field-wrap" style="margin-bottom:1.4rem">
             <label for="cv-file">Curriculum Vitae File (.pdf, .doc, .docx) *</label>
             <div id="cv-drop-area" class="cv-drop-area" tabindex="0" role="button" aria-label="Select or drop your CV file">
-              <div style="font-weight:700; color:var(--navy-deep); font-size:0.95rem;">Click to select your CV file or drag and drop here</div>
-              <div id="cv-status-label" style="font-size:0.82rem; color:var(--ink-muted); margin-top:0.25rem;">Accepted formats: PDF, DOC, DOCX (Max 15 MB) &bull; Direct secure upload</div>
+              <div style="font-weight:700;color:var(--navy-deep);font-size:.95rem">Click to select your CV file or drag and drop here</div>
+              <div id="cv-status-label" style="font-size:.82rem;color:var(--ink-muted);margin-top:.25rem">Accepted formats: PDF, DOC, DOCX (Max 15 MB) &bull; Direct secure upload</div>
               <input type="file" id="cv-file" accept=".pdf,.doc,.docx" class="hidden">
             </div>
           </div>
-          <button type="submit" id="cv-submit-btn" class="btn btn-emerald btn-lg" style="width:100%;">Upload CV &amp; Register with Physician Leadership &rarr;</button>
+          <button type="submit" id="cv-submit-btn" class="btn btn-emerald btn-lg" style="width:100%">Upload CV &amp; Register with Physician Leadership &rarr;</button>
           <div id="cv-alert" class="feedback-alert" role="status"></div>
         </form>
       </div>
     </section>
   </div>
-
   <footer class="site-footer">
     <div class="container">
       <div class="footer-cols">
         <div>
-          <div style="display:flex; align-items:center; gap:0.8rem;">
-            <svg width="38" height="44" viewBox="0 0 46 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M23 2L43 9.5V25.5C43 38.2 34.4 45.8 23 50C11.6 45.8 3 38.2 3 25.5V9.5L23 2Z" fill="url(#hmcShieldGrad)" stroke="#B91C1C" stroke-width="2.6"></path>
-              <text x="23" y="29.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13.5" fill="#0B1C34">HMC</text>
-            </svg>
-            <div>
-              <div class="serif" style="font-size:1.15rem; font-weight:700; color:#FFFFFF;">Hospital Medicine Consultants</div>
-              <div class="mono" style="font-size:0.66rem; color:#FCA5A5; letter-spacing:0.06em;">NORTHEAST &amp; MID-ATLANTIC INPATIENT PRACTICE</div>
-            </div>
-          </div>
-          <p style="margin-top:0.8rem; max-width:360px; color:#CBD5E1;">Exclusively focused on Hospitalist Medicine across the Northeast &amp; Mid-Atlantic USA. Peer-vetted, board-certified Hospitalists ready for rapid privileging.</p>
+          <div style="display:flex;align-items:center;gap:.8rem"><svg width="38" height="44" viewBox="0 0 46 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23 2L43 9.5V25.5C43 38.2 34.4 45.8 23 50C11.6 45.8 3 38.2 3 25.5V9.5L23 2Z" fill="url(#hmcShieldGrad)" stroke="#B91C1C" stroke-width="2.6"></path><text x="23" y="29.5" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="13.5" fill="#0B1C34">HMC</text></svg><div><div class="serif" style="font-size:1.15rem;font-weight:700;color:#fff">Hospital Medicine Consultants</div><div class="mono" style="font-size:.66rem;color:#FCA5A5;letter-spacing:.06em">NORTHEAST &amp; MID-ATLANTIC INPATIENT PRACTICE</div></div></div>
+          <p style="margin-top:.8rem;max-width:360px;color:#CBD5E1">Exclusively focused on Hospitalist Medicine across the Northeast &amp; Mid-Atlantic USA. Peer-vetted, board-certified Hospitalists ready for rapid privileging.</p>
         </div>
-        <div>
-          <div class="footer-title">10-State Regional Footprint</div>
-          <p class="mono" style="font-size:0.82rem; color:#FFFFFF; font-weight:700;">NY &bull; NJ &bull; CT &bull; PA &bull; MA &bull; NH &bull; ME &bull; RI &bull; VT &bull; DE</p>
-          <p style="margin-top:0.55rem; color:#A7F3D0;">Full tail malpractice insurance covered on every placement.</p>
-        </div>
-        <div>
-          <div class="footer-title">Direct Physician Leadership Desk</div>
-          <p><a href="mailto:info@hospitalmedicineconsultants.com?subject=Hospitalist%20Coverage%20Inquiry" class="js-email-trigger mono" data-subject="Hospitalist Coverage Inquiry" style="color:#FFFFFF; font-size:0.83rem; font-weight:700; text-decoration:underline;">info@hospitalmedicineconsultants.com</a></p>
-          <p style="margin-top:0.75rem; display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="#hosp-contact" data-nav-target="hosp-contact" data-nav-role="HOSPITAL" style="color:#93C5FD; font-weight:600;">Request Coverage &rarr;</a>
-            <a href="#phys-cv" data-nav-target="phys-cv" data-nav-role="PHYSICIAN" style="color:#A7F3D0; font-weight:600;">Submit Hospitalist CV &rarr;</a>
-          </p>
-        </div>
+        <div><div class="footer-title">10-State Regional Footprint</div><p class="mono" style="font-size:.82rem;color:#fff;font-weight:700">NY &bull; NJ &bull; CT &bull; PA &bull; MA &bull; NH &bull; ME &bull; RI &bull; VT &bull; DE</p><p style="margin-top:.55rem;color:#A7F3D0">Full tail malpractice insurance covered on every placement.</p></div>
+        <div><div class="footer-title">Direct Physician Leadership Desk</div><p><a href="mailto:info@hospitalmedicineconsultants.com?subject=Hospitalist%20Coverage%20Inquiry" class="js-email-trigger mono" data-subject="Hospitalist Coverage Inquiry" style="color:#fff;font-size:.83rem;font-weight:700;text-decoration:underline">info@hospitalmedicineconsultants.com</a></p><p style="margin-top:.75rem;display:flex;gap:1rem;flex-wrap:wrap"><a href="#hosp-contact" data-nav-target="hosp-contact" data-nav-role="HOSPITAL" style="color:#93C5FD;font-weight:600">Request Coverage &rarr;</a><a href="#phys-cv" data-nav-target="phys-cv" data-nav-role="PHYSICIAN" style="color:#A7F3D0;font-weight:600">Submit Hospitalist CV &rarr;</a></p></div>
       </div>
-      <div class="footer-legal">
-        <span>&copy; 2026 Hospital Medicine Consultants, NJ LLC. All rights reserved.</span>
-        <span>Exclusively Focused on Hospitalist Medicine</span>
-      </div>
+      <div class="footer-legal"><span>&copy; 2026 Hospital Medicine Consultants, NJ LLC. All rights reserved.</span><span>Exclusively Focused on Hospitalist Medicine</span></div>
     </div>
   </footer>
-
   <script>
-    (function () {
-      const EMAIL_ADDRESS = "info@hospitalmedicineconsultants.com";
-      const GOOGLE_DRIVE_UPLOAD_URL = "https://script.google.com/macros/s/AKfycbwuczvNMhNmwTJW3qEXz9Zrg1w69sBuUDulJbTIsROtNUtxSBy7ozr7O136FYUdtn5E/exec";
-
-      const toastBanner = document.getElementById("toast-banner");
-      const toastText = document.getElementById("toast-text");
-      const toastCloseBtn = document.getElementById("toast-close-btn");
-      const toastRecopyBtn = document.getElementById("toast-recopy-btn");
-      let toastTimeout = null;
-
-      function copyEmailSandboxSafe(text) {
-        let copied = false;
-        try {
-          const ta = document.createElement("textarea");
-          ta.value = text;
-          ta.setAttribute("readonly", "");
-          ta.style.position = "fixed";
-          ta.style.top = "0";
-          ta.style.left = "-9999px";
-          document.body.appendChild(ta);
-          ta.select();
-          ta.setSelectionRange(0, 99999);
-          copied = document.execCommand("copy");
-          document.body.removeChild(ta);
-        } catch (e) { copied = false; }
-        if (!copied && navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).catch(function () {});
-        }
-      }
-
-      function showToast(msg) {
-        if (!toastBanner || !toastText) return;
-        toastText.textContent = msg;
-        toastBanner.classList.add("visible");
-        if (toastTimeout) clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(function () { toastBanner.classList.remove("visible"); }, 8000);
-      }
-
-      if (toastCloseBtn) toastCloseBtn.addEventListener("click", function () { toastBanner.classList.remove("visible"); });
-      if (toastRecopyBtn) toastRecopyBtn.addEventListener("click", function () { copyEmailSandboxSafe(EMAIL_ADDRESS); showToast("Copied " + EMAIL_ADDRESS + " to your clipboard."); });
-
-      function triggerEmailFlow(subject, openMailto) {
-        copyEmailSandboxSafe(EMAIL_ADDRESS);
-        showToast("Copied " + EMAIL_ADDRESS + " to clipboard. Use Gmail, Outlook, or your mail app below to send your message.");
-        if (openMailto) {
-          const href = "mailto:" + EMAIL_ADDRESS + (subject ? "?subject=" + encodeURIComponent(subject) : "");
-          try { window.location.href = href; } catch (err) {}
-        }
-      }
-
-      let activeView = "HOSPITAL";
-      const pillHospital = document.getElementById("pill-hospital");
-      const pillPhysician = document.getElementById("pill-physician");
-      const hospitalView = document.getElementById("hospital-view");
-      const physicianView = document.getElementById("physician-view");
-      const hospitalNavLinks = document.getElementById("hospital-nav-links");
-      const physicianNavLinks = document.getElementById("physician-nav-links");
-
-      function switchRole(role, skipScroll) {
-        activeView = role;
-        if (role === "PHYSICIAN") {
-          pillHospital.classList.remove("active-hospital"); pillHospital.setAttribute("aria-selected", "false");
-          pillPhysician.classList.add("active-physician"); pillPhysician.setAttribute("aria-selected", "true");
-          hospitalView.classList.add("hidden"); hospitalNavLinks.classList.add("hidden");
-          physicianView.classList.remove("hidden"); physicianNavLinks.classList.remove("hidden");
-        } else {
-          pillPhysician.classList.remove("active-physician"); pillPhysician.setAttribute("aria-selected", "false");
-          pillHospital.classList.add("active-hospital"); pillHospital.setAttribute("aria-selected", "true");
-          physicianView.classList.add("hidden"); physicianNavLinks.classList.add("hidden");
-          hospitalView.classList.remove("hidden"); hospitalNavLinks.classList.remove("hidden");
-        }
-        if (!skipScroll) window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      function navigateToSection(sectionId, targetRole) {
-        if (targetRole && activeView !== targetRole) switchRole(targetRole, true);
-        const targetEl = document.getElementById(sectionId);
-        if (targetEl) setTimeout(function () { targetEl.scrollIntoView({ behavior: "smooth", block: "start" }); }, 30);
-      }
-
-      pillHospital.addEventListener("click", function () { switchRole("HOSPITAL"); });
-      pillPhysician.addEventListener("click", function () { switchRole("PHYSICIAN"); });
-
-      document.addEventListener("click", function (e) {
-        const emailBtn = e.target.closest(".js-email-trigger");
-        if (emailBtn) { e.preventDefault(); triggerEmailFlow(emailBtn.getAttribute("data-subject") || "Hospitalist Coverage Request", true); return; }
-        const navEl = e.target.closest("[data-nav-target]");
-        if (navEl) { e.preventDefault(); navigateToSection(navEl.getAttribute("data-nav-target"), navEl.getAttribute("data-nav-role")); }
-      });
-
-      const copyAddressBtn = document.getElementById("copy-address-btn");
-      if (copyAddressBtn) copyAddressBtn.addEventListener("click", function () { triggerEmailFlow("", false); });
-
-      const STATES_INFO = {
-        NY: { code: "NY", name: "New York", cx: 202, cy: 164, hubs: "Hudson Valley, Capital Region, Upstate & Metro New York", licensure: "NYSED State Medical License (Direct Medical Staff Credentialing)", settings: "Academic Medical Centers, Regional Health Systems & Community Hospitals", scope: "Peer-vetted, board-certified Hospitalists ready for rapid privileging across Day, Swing, and Nocturnist inpatient lines." },
-        NJ: { code: "NJ", name: "New Jersey", cx: 208, cy: 268, hubs: "Northern, Central & Southern New Jersey", licensure: "NJ Board of Medical Examiners (IMLC Compact Member State)", settings: "Multi-Hospital Health Networks, Suburban Teaching & Community Centers", scope: "Headquartered in NJ with immediate access to regional Hospitalists for rapid assignment filling and block coverage." },
-        CT: { code: "CT", name: "Connecticut", cx: 290, cy: 220, hubs: "Hartford, New Haven, Fairfield & Eastern Connecticut", licensure: "CT Department of Public Health (IMLC Compact & Endorsement)", settings: "Regional Referral Hospitals, Academic Affiliates & Community Programs", scope: "Active CT-credentialed Hospitalists ready for 7-on/7-off inpatient rounding and night admission coverage." },
-        PA: { code: "PA", name: "Pennsylvania", cx: 112, cy: 264, hubs: "Lehigh Valley, Greater Philadelphia, Central & Northeastern PA", licensure: "PA State Board of Medicine / Osteopathic Medicine (IMLC Member)", settings: "Integrated Health Networks, Teaching & Community Inpatient Units", scope: "Rapid deployment of board-certified Hospitalists experienced in high-volume acute care and ICU co-management." },
-        MA: { code: "MA", name: "Massachusetts", cx: 320, cy: 179, hubs: "Greater Boston, Worcester, Springfield & South Coast", licensure: "MA Board of Registration in Medicine (Full & Temporary Locum Pathways)", settings: "Academic Teaching Affiliates, Community Hospitals & Regional Medical Centers", scope: "Dedicated Hospitalist Medicine coverage tailored to high-acuity inpatient throughput and multidisciplinary care." },
-        NH: { code: "NH", name: "New Hampshire", cx: 321, cy: 118, hubs: "Manchester, Nashua, Concord & Seacoast Region", licensure: "NH Board of Medicine (IMLC Compact Member — Expedited Licensure)", settings: "Regional Medical Centers, Community & Critical Access Hospitals", scope: "Ready-to-deploy New England Hospitalists for Day rounding and Nocturnist coverage with full tail malpractice covered." },
-        ME: { code: "ME", name: "Maine", cx: 386, cy: 88, hubs: "Portland, Bangor, Lewiston & Coastal Medical Centers", licensure: "ME Board of Licensure in Medicine (IMLC Compact & Temporary Permits)", settings: "Regional Referral Centers, Coastal Community & Critical Access Facilities", scope: "Experienced inpatient Hospitalists skilled in autonomous acute care, tele-ICU collaboration, and rural transfers." },
-        RI: { code: "RI", name: "Rhode Island", cx: 343, cy: 220, hubs: "Providence Metro, Warwick & Newport", licensure: "RI Department of Health Board of Medical Licensure (IMLC Member)", settings: "Academic-Affiliated Medical Centers & Community Inpatient Services", scope: "Immediate regional Hospitalist deployment for Day, Swing, and Nocturnist inpatient shifts." },
-        VT: { code: "VT", name: "Vermont", cx: 276, cy: 118, hubs: "Burlington, Rutland & Central Vermont", licensure: "VT Board of Medical Practice (IMLC Compact Member State)", settings: "Academic Network Affiliates, Community & Critical Access Hospitals", scope: "Collegial, board-certified Hospitalists ready for rapid privileging across Vermont inpatient programs." },
-        DE: { code: "DE", name: "Delaware", cx: 182, cy: 342, hubs: "Wilmington, Newark, Dover & Coastal Sussex County", licensure: "DE Board of Medical Licensure and Discipline (IMLC Compact Member)", settings: "High-Volume Regional Health Systems & Community Inpatient Units", scope: "Fastest assignment filling across New Castle, Kent, and Sussex counties with full tail malpractice insurance covered." }
-      };
-
-      const STATE_KEYS = ["NY", "NJ", "CT", "PA", "MA", "NH", "ME", "RI", "VT", "DE"];
-      let currentState = "NY";
-
-      function renderStateButtons(containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        container.innerHTML = "";
-        STATE_KEYS.forEach(function (code) {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "state-chip-btn" + (code === currentState ? " active" : "");
-          btn.textContent = code;
-          btn.addEventListener("click", function () { selectRegionalState(code); });
-          container.appendChild(btn);
-        });
-      }
-
-      function renderStateCards() {
-        const st = STATES_INFO[currentState];
-        if (!st) return;
-        const hospCard = document.getElementById("hosp-state-profile");
-        if (hospCard) {
-          hospCard.innerHTML =
-            '<div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; flex-wrap:wrap;"><span class="section-tag">Active State Coverage</span><span class="mono" style="font-size:0.74rem; font-weight:700; color:var(--emerald);">FULL TAIL COVERED</span></div>' +
-            '<h3 class="serif" style="font-size:1.65rem; font-weight:400; color:var(--navy-deep); margin-top:0.55rem;">' + st.name + ' (' + st.code + ') Hospitalist Coverage</h3>' +
-            '<div class="detail-spec-list">' +
-              '<div class="detail-spec-box"><div class="detail-spec-label">Regional Service Corridors</div><div class="detail-spec-value">' + st.hubs + '</div></div>' +
-              '<div class="detail-spec-box"><div class="detail-spec-label">Licensure &amp; Privileging Pathway</div><div class="detail-spec-value">' + st.licensure + '</div></div>' +
-              '<div class="detail-spec-box"><div class="detail-spec-label">Inpatient Clinical Scope</div><div class="detail-spec-value">' + st.scope + '</div></div>' +
-            '</div>' +
-            '<div style="margin-top:1.25rem;"><a href="#hosp-contact" data-nav-target="hosp-contact" data-nav-role="HOSPITAL" class="btn btn-navy" style="width:100%;">Request ' + st.name + ' Hospitalist Coverage &rarr;</a></div>';
-        }
-        const physCard = document.getElementById("phys-state-profile");
-        if (physCard) {
-          physCard.innerHTML =
-            '<div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; flex-wrap:wrap;"><span class="section-tag emerald-tag">State Practice Profile</span><span class="mono" style="font-size:0.74rem; font-weight:700; color:var(--emerald);">FULL TAIL COVERED</span></div>' +
-            '<h3 class="serif" style="font-size:1.65rem; font-weight:400; color:var(--navy-deep); margin-top:0.55rem;">' + st.name + ' (' + st.code + ') Hospitalist Practice</h3>' +
-            '<div class="detail-spec-list">' +
-              '<div class="detail-spec-box"><div class="detail-spec-label">Licensure &amp; IMLC Status</div><div class="detail-spec-value">' + st.licensure + '</div></div>' +
-              '<div class="detail-spec-box"><div class="detail-spec-label">Hospital Settings</div><div class="detail-spec-value">' + st.settings + '</div></div>' +
-              '<div class="detail-spec-box"><div class="detail-spec-label">Regional Corridors</div><div class="detail-spec-value">' + st.hubs + '</div></div>' +
-            '</div>' +
-            '<div style="margin-top:1.25rem;"><a href="#phys-cv" data-nav-target="phys-cv" data-nav-role="PHYSICIAN" class="btn btn-emerald" style="width:100%;">Submit CV for ' + st.name + ' Practice &rarr;</a></div>';
-        }
-      }
-
-      function selectRegionalState(code) {
-        if (!STATES_INFO[code]) return;
-        currentState = code;
-        const info = STATES_INFO[code];
-        STATE_KEYS.forEach(function (st) {
-          ["hosp", "phys"].forEach(function (prefix) {
-            const poly = document.getElementById(prefix + "-poly-" + st);
-            const txt = document.getElementById(prefix + "-txt-" + st);
-            if (poly) { if (st === code) poly.classList.add("selected"); else poly.classList.remove("selected"); }
-            if (txt) { if (st === code) txt.classList.add("selected-text"); else txt.classList.remove("selected-text"); }
-          });
-        });
-        ["hosp-radar-ring", "phys-radar-ring"].forEach(function (ringId) {
-          const ring = document.getElementById(ringId);
-          if (ring) { ring.setAttribute("cx", info.cx); ring.setAttribute("cy", info.cy); }
-        });
-        renderStateButtons("hosp-state-buttons");
-        renderStateButtons("phys-state-buttons");
-        renderStateCards();
-      }
-
-      document.querySelectorAll(".region-state-poly").forEach(function (poly) {
-        poly.addEventListener("click", function () { const code = poly.getAttribute("data-state"); if (code) selectRegionalState(code); });
-      });
+    (function(){
+      const EMAIL_ADDRESS="info@hospitalmedicineconsultants.com";
+      const GOOGLE_DRIVE_UPLOAD_URL="https://script.google.com/macros/s/AKfycbwuczvNMhNmwTJW3qEXz9Zrg1w69sBuUDulJbTIsROtNUtxSBy7ozr7O136FYUdtn5E/exec";
+      const toastBanner=document.getElementById("toast-banner"),toastText=document.getElementById("toast-text"),toastCloseBtn=document.getElementById("toast-close-btn"),toastRecopyBtn=document.getElementById("toast-recopy-btn");
+      let toastTimeout=null;
+      function copyEmailSandboxSafe(text){let copied=!1;try{const ta=document.createElement("textarea");ta.value=text;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.top="0";ta.style.left="-9999px";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,99999);copied=document.execCommand("copy");document.body.removeChild(ta)}catch(e){copied=!1}if(!copied&&navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).catch(function(){})}
+      function showToast(msg){if(!toastBanner||!toastText)return;toastText.textContent=msg;toastBanner.classList.add("visible");if(toastTimeout)clearTimeout(toastTimeout);toastTimeout=setTimeout(function(){toastBanner.classList.remove("visible")},8000)}
+      if(toastCloseBtn)toastCloseBtn.addEventListener("click",function(){toastBanner.classList.remove("visible")});
+      if(toastRecopyBtn)toastRecopyBtn.addEventListener("click",function(){copyEmailSandboxSafe(EMAIL_ADDRESS);showToast("Copied "+EMAIL_ADDRESS+" to your clipboard.")});
+      function triggerEmailFlow(subject,openMailto){copyEmailSandboxSafe(EMAIL_ADDRESS);showToast("Copied "+EMAIL_ADDRESS+" to clipboard. Use Gmail, Outlook, or your mail app below to send your message.");if(openMailto){try{window.location.href="mailto:"+EMAIL_ADDRESS+(subject?"?subject="+encodeURIComponent(subject):"")}catch(err){}}}
+      let activeView="HOSPITAL";
+      const pillHospital=document.getElementById("pill-hospital"),pillPhysician=document.getElementById("pill-physician"),hospitalView=document.getElementById("hospital-view"),physicianView=document.getElementById("physician-view"),hospitalNavLinks=document.getElementById("hospital-nav-links"),physicianNavLinks=document.getElementById("physician-nav-links");
+      function switchRole(role,skipScroll){activeView=role;if(role==="PHYSICIAN"){pillHospital.classList.remove("active-hospital");pillHospital.setAttribute("aria-selected","false");pillPhysician.classList.add("active-physician");pillPhysician.setAttribute("aria-selected","true");hospitalView.classList.add("hidden");hospitalNavLinks.classList.add("hidden");physicianView.classList.remove("hidden");physicianNavLinks.classList.remove("hidden")}else{pillPhysician.classList.remove("active-physician");pillPhysician.setAttribute("aria-selected","false");pillHospital.classList.add("active-hospital");pillHospital.setAttribute("aria-selected","true");physicianView.classList.add("hidden");physicianNavLinks.classList.add("hidden");hospitalView.classList.remove("hidden");hospitalNavLinks.classList.remove("hidden")}if(!skipScroll)window.scrollTo({top:0,behavior:"smooth"})}
+      function navigateToSection(sectionId,targetRole){if(targetRole&&activeView!==targetRole)switchRole(targetRole,!0);const targetEl=document.getElementById(sectionId);if(targetEl)setTimeout(function(){targetEl.scrollIntoView({behavior:"smooth",block:"start"})},30)}
+      pillHospital.addEventListener("click",function(){switchRole("HOSPITAL")});
+      pillPhysician.addEventListener("click",function(){switchRole("PHYSICIAN")});
+      document.addEventListener("click",function(e){const emailBtn=e.target.closest(".js-email-trigger");if(emailBtn){e.preventDefault();triggerEmailFlow(emailBtn.getAttribute("data-subject")||"Hospitalist Coverage Request",!0);return}const navEl=e.target.closest("[data-nav-target]");if(navEl){e.preventDefault();navigateToSection(navEl.getAttribute("data-nav-target"),navEl.getAttribute("data-nav-role"))}});
+      const copyAddressBtn=document.getElementById("copy-address-btn");
+      if(copyAddressBtn)copyAddressBtn.addEventListener("click",function(){triggerEmailFlow("",!1)});
+      const STATES_INFO={NY:{code:"NY",name:"New York",cx:202,cy:164,hubs:"Hudson Valley, Capital Region, Upstate & Metro New York",licensure:"NYSED State Medical License (Direct Medical Staff Credentialing)",settings:"Academic Medical Centers, Regional Health Systems & Community Hospitals",scope:"Peer-vetted, board-certified Hospitalists ready for rapid privileging across Day, Swing, and Nocturnist inpatient lines."},NJ:{code:"NJ",name:"New Jersey",cx:208,cy:268,hubs:"Northern, Central & Southern New Jersey",licensure:"NJ Board of Medical Examiners (IMLC Compact Member State)",settings:"Multi-Hospital Health Networks, Suburban Teaching & Community Centers",scope:"Headquartered in NJ with immediate access to regional Hospitalists for rapid assignment filling and block coverage."},CT:{code:"CT",name:"Connecticut",cx:290,cy:220,hubs:"Hartford, New Haven, Fairfield & Eastern Connecticut",licensure:"CT Department of Public Health (IMLC Compact & Endorsement)",settings:"Regional Referral Hospitals, Academic Affiliates & Community Programs",scope:"Active CT-credentialed Hospitalists ready for 7-on/7-off inpatient rounding and night admission coverage."},PA:{code:"PA",name:"Pennsylvania",cx:112,cy:264,hubs:"Lehigh Valley, Greater Philadelphia, Central & Northeastern PA",licensure:"PA State Board of Medicine / Osteopathic Medicine (IMLC Member)",settings:"Integrated Health Networks, Teaching & Community Inpatient Units",scope:"Rapid deployment of board-certified Hospitalists experienced in high-volume acute care and ICU co-management."},MA:{code:"MA",name:"Massachusetts",cx:320,cy:179,hubs:"Greater Boston, Worcester, Springfield & South Coast",licensure:"MA Board of Registration in Medicine (Full & Temporary Locum Pathways)",settings:"Academic Teaching Affiliates, Community Hospitals & Regional Medical Centers",scope:"Dedicated Hospitalist Medicine coverage tailored to high-acuity inpatient throughput and multidisciplinary care."},NH:{code:"NH",name:"New Hampshire",cx:321,cy:118,hubs:"Manchester, Nashua, Concord & Seacoast Region",licensure:"NH Board of Medicine (IMLC Compact Member — Expedited Licensure)",settings:"Regional Medical Centers, Community & Critical Access Hospitals",scope:"Ready-to-deploy New England Hospitalists for Day rounding and Nocturnist coverage with full tail malpractice covered."},ME:{code:"ME",name:"Maine",cx:386,cy:88,hubs:"Portland, Bangor, Lewiston & Coastal Medical Centers",licensure:"ME Board of Licensure in Medicine (IMLC Compact & Temporary Permits)",settings:"Regional Referral Centers, Coastal Community & Critical Access Facilities",scope:"Experienced inpatient Hospitalists skilled in autonomous acute care, tele-ICU collaboration, and rural transfers."},RI:{code:"RI",name:"Rhode Island",cx:343,cy:220,hubs:"Providence Metro, Warwick & Newport",licensure:"RI Department of Health Board of Medical Licensure (IMLC Member)",settings:"Academic-Affiliated Medical Centers & Community Inpatient Services",scope:"Immediate regional Hospitalist deployment for Day, Swing, and Nocturnist inpatient shifts."},VT:{code:"VT",name:"Vermont",cx:276,cy:118,hubs:"Burlington, Rutland & Central Vermont",licensure:"VT Board of Medical Practice (IMLC Compact Member State)",settings:"Academic Network Affiliates, Community & Critical Access Hospitals",scope:"Collegial, board-certified Hospitalists ready for rapid privileging across Vermont inpatient programs."},DE:{code:"DE",name:"Delaware",cx:182,cy:342,hubs:"Wilmington, Newark, Dover & Coastal Sussex County",licensure:"DE Board of Medical Licensure and Discipline (IMLC Compact Member)",settings:"High-Volume Regional Health Systems & Community Inpatient Units",scope:"Fastest assignment filling across New Castle, Kent, and Sussex counties with full tail malpractice insurance covered."}};
+      const STATE_KEYS=["NY","NJ","CT","PA","MA","NH","ME","RI","VT","DE"];
+      let currentState="NY";
+      function renderStateButtons(containerId){const container=document.getElementById(containerId);if(!container)return;container.innerHTML="";STATE_KEYS.forEach(function(code){const btn=document.createElement("button");btn.type="button";btn.className="state-chip-btn"+(code===currentState?" active":"");btn.textContent=code;btn.addEventListener("click",function(){selectRegionalState(code)});container.appendChild(btn)})}
+      function renderStateCards(){const st=STATES_INFO[currentState];if(!st)return;const hospCard=document.getElementById("hosp-state-profile");if(hospCard){hospCard.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap"><span class="section-tag">Active State Coverage</span><span class="mono" style="font-size:.74rem;font-weight:700;color:var(--emerald)">FULL TAIL COVERED</span></div><h3 class="serif" style="font-size:1.65rem;font-weight:400;color:var(--navy-deep);margin-top:.55rem">'+st.name+" ("+st.code+') Hospitalist Coverage</h3><div class="detail-spec-list"><div class="detail-spec-box"><div class="detail-spec-label">Regional Service Corridors</div><div class="detail-spec-value">'+st.hubs+'</div></div><div class="detail-spec-box"><div class="detail-spec-label">Licensure &amp; Privileging Pathway</div><div class="detail-spec-value">'+st.licensure+'</div></div><div class="detail-spec-box"><div class="detail-spec-label">Inpatient Clinical Scope</div><div class="detail-spec-value">'+st.scope+'</div></div></div><div style="margin-top:1.25rem"><a href="#hosp-contact" data-nav-target="hosp-contact" data-nav-role="HOSPITAL" class="btn btn-navy" style="width:100%">Request '+st.name+" Hospitalist Coverage &rarr;</a></div>"}const physCard=document.getElementById("phys-state-profile");if(physCard){physCard.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap"><span class="section-tag emerald-tag">State Practice Profile</span><span class="mono" style="font-size:.74rem;font-weight:700;color:var(--emerald)">FULL TAIL COVERED</span></div><h3 class="serif" style="font-size:1.65rem;font-weight:400;color:var(--navy-deep);margin-top:.55rem">'+st.name+" ("+st.code+') Hospitalist Practice</h3><div class="detail-spec-list"><div class="detail-spec-box"><div class="detail-spec-label">Licensure &amp; IMLC Status</div><div class="detail-spec-value">'+st.licensure+'</div></div><div class="detail-spec-box"><div class="detail-spec-label">Hospital Settings</div><div class="detail-spec-value">'+st.settings+'</div></div><div class="detail-spec-box"><div class="detail-spec-label">Regional Corridors</div><div class="detail-spec-value">'+st.hubs+'</div></div></div><div style="margin-top:1.25rem"><a href="#phys-cv" data-nav-target="phys-cv" data-nav-role="PHYSICIAN" class="btn btn-emerald" style="width:100%">Submit CV for '+st.name+" Practice &rarr;</a></div>"}}
+      function selectRegionalState(code){if(!STATES_INFO[code])return;currentState=code;const info=STATES_INFO[code];STATE_KEYS.forEach(function(st){["hosp","phys"].forEach(function(prefix){const poly=document.getElementById(prefix+"-poly-"+st),txt=document.getElementById(prefix+"-txt-"+st);if(poly){if(st===code)poly.classList.add("selected");else poly.classList.remove("selected")}if(txt){if(st===code)txt.classList.add("selected-text");else txt.classList.remove("selected-text")}})});["hosp-radar-ring","phys-radar-ring"].forEach(function(ringId){const ring=document.getElementById(ringId);if(ring){ring.setAttribute("cx",info.cx);ring.setAttribute("cy",info.cy)}});renderStateButtons("hosp-state-buttons");renderStateButtons("phys-state-buttons");renderStateCards()}
+      document.querySelectorAll(".region-state-poly").forEach(function(poly){poly.addEventListener("click",function(){const code=poly.getAttribute("data-state");if(code)selectRegionalState(code)})});
       selectRegionalState("NY");
-
-      const JOBS_DATA = [
-        { id: "JOB-NY-101", state: "NY", region: "Hudson Valley, NY", shift: "Day", setting: "Community", title: "Day Hospitalist (7a–7p)", details: "7-on/7-off block schedule • 14–16 encounters • Open ICU with intensivist backup • Full tail malpractice covered." },
-        { id: "JOB-NJ-104", state: "NJ", region: "Central New Jersey", shift: "Nocturnist", setting: "Academic/Teaching", title: "Nocturnist Hospitalist (7p–7a)", details: "Resident cross-coverage support • 6–8 admissions/night • Rapid hospital privileging • Full tail malpractice covered." },
-        { id: "JOB-CT-108", state: "CT", region: "Greater Hartford, CT", shift: "Day", setting: "Community", title: "Day Rounding Hospitalist", details: "No procedures required • Dedicated admitting team • Epic EMR • Full tail malpractice covered." },
-        { id: "JOB-PA-112", state: "PA", region: "Lehigh Valley, PA", shift: "Swing", setting: "Academic/Teaching", title: "Swing / Admitter Hospitalist (1p–11p)", details: "ED admissions focus • 8–10 admissions/shift • Collaborative subspecialty support • Full tail malpractice covered." },
-        { id: "JOB-NH-115", state: "NH", region: "Southern New Hampshire", shift: "Day", setting: "Critical Access", title: "Inpatient Hospitalist — Regional Medical Center", details: "Manageable 12–14 patient census • Tele-ICU support • IMLC expedited licensure • Full tail malpractice covered." },
-        { id: "JOB-MA-119", state: "MA", region: "Worcester / Central MA", shift: "Nocturnist", setting: "Community", title: "Nocturnist Coverage — Multi-Week Blocks", details: "Flexible block scheduling • APP cross-cover partner • Full tail malpractice covered." }
-      ];
-
-      const filterState = document.getElementById("filter-state");
-      const filterShift = document.getElementById("filter-shift");
-      const filterSetting = document.getElementById("filter-setting");
-      const resetFiltersBtn = document.getElementById("reset-filters-btn");
-      const jobsContainer = document.getElementById("jobs-cards-container");
-      const jobsCountText = document.getElementById("jobs-count-text");
-
-      function renderJobs() {
-        if (!jobsContainer) return;
-        const sVal = filterState ? filterState.value : "ALL";
-        const shVal = filterShift ? filterShift.value : "ALL";
-        const setVal = filterSetting ? filterSetting.value : "ALL";
-        const filtered = JOBS_DATA.filter(function (job) {
-          return (sVal === "ALL" || job.state === sVal) && (shVal === "ALL" || job.shift === shVal) && (setVal === "ALL" || job.setting === setVal);
-        });
-        if (jobsCountText) jobsCountText.textContent = "SHOWING " + filtered.length + " ACTIVE HOSPITALIST ASSIGNMENT" + (filtered.length === 1 ? "" : "S");
-        jobsContainer.innerHTML = "";
-        if (filtered.length === 0) {
-          jobsContainer.innerHTML = '<div class="job-card" style="grid-column:1/-1;"><p style="color:var(--ink-slate);">No current listings match that exact filter combination. Submit your CV below to receive direct alerts for upcoming shifts in your preferred state.</p></div>';
-          return;
-        }
-        filtered.forEach(function (job) {
-          const pillClass = job.shift === "Nocturnist" ? "shift-pill nocturnist" : (job.shift === "Swing" ? "shift-pill swing" : "shift-pill");
-          const card = document.createElement("article");
-          card.className = "job-card";
-          card.innerHTML =
-            '<div><div class="job-card-badges"><span class="' + pillClass + '">' + job.shift.toUpperCase() + ' &bull; ' + job.state + '</span><span class="mono" style="font-size:0.74rem; color:var(--ink-muted); font-weight:700;">' + job.id + '</span></div>' +
-            '<h3 class="serif" style="font-size:1.25rem; font-weight:400; color:var(--navy-deep); margin-top:0.65rem;">' + job.title + '</h3>' +
-            '<div style="font-size:0.84rem; font-weight:600; color:var(--cobalt); margin-top:0.15rem;">' + job.region + ' &bull; ' + job.setting + '</div>' +
-            '<p style="font-size:0.9rem; color:var(--ink-slate); margin-top:0.6rem;">' + job.details + '</p></div>' +
-            '<div><button type="button" class="btn btn-outline btn-sm js-apply-job" data-job-id="' + job.id + '" style="width:100%;">Apply for ' + job.id + ' &rarr;</button></div>';
-          jobsContainer.appendChild(card);
-        });
-      }
-
-      if (filterState) filterState.addEventListener("change", renderJobs);
-      if (filterShift) filterShift.addEventListener("change", renderJobs);
-      if (filterSetting) filterSetting.addEventListener("change", renderJobs);
-      if (resetFiltersBtn) resetFiltersBtn.addEventListener("click", function () { if (filterState) filterState.value = "ALL"; if (filterShift) filterShift.value = "ALL"; if (filterSetting) filterSetting.value = "ALL"; renderJobs(); });
-
-      document.addEventListener("click", function (e) {
-        const applyBtn = e.target.closest(".js-apply-job");
-        if (applyBtn) {
-          const jobId = applyBtn.getAttribute("data-job-id");
-          const refInput = document.getElementById("phys-job-ref");
-          if (refInput && jobId) refInput.value = jobId;
-          navigateToSection("phys-cv", "PHYSICIAN");
-        }
-      });
+      const JOBS_DATA=[{id:"JOB-NY-101",state:"NY",region:"Hudson Valley, NY",shift:"Day",setting:"Community",title:"Day Hospitalist (7a–7p)",details:"7-on/7-off block schedule • 14–16 encounters • Open ICU with intensivist backup • Full tail malpractice covered."},{id:"JOB-NJ-104",state:"NJ",region:"Central New Jersey",shift:"Nocturnist",setting:"Academic/Teaching",title:"Nocturnist Hospitalist (7p–7a)",details:"Resident cross-coverage support • 6–8 admissions/night • Rapid hospital privileging • Full tail malpractice covered."},{id:"JOB-CT-108",state:"CT",region:"Greater Hartford, CT",shift:"Day",setting:"Community",title:"Day Rounding Hospitalist",details:"No procedures required • Dedicated admitting team • Epic EMR • Full tail malpractice covered."},{id:"JOB-PA-112",state:"PA",region:"Lehigh Valley, PA",shift:"Swing",setting:"Academic/Teaching",title:"Swing / Admitter Hospitalist (1p–11p)",details:"ED admissions focus • 8–10 admissions/shift • Collaborative subspecialty support • Full tail malpractice covered."},{id:"JOB-NH-115",state:"NH",region:"Southern New Hampshire",shift:"Day",setting:"Critical Access",title:"Inpatient Hospitalist — Regional Medical Center",details:"Manageable 12–14 patient census • Tele-ICU support • IMLC expedited licensure • Full tail malpractice covered."},{id:"JOB-MA-119",state:"MA",region:"Worcester / Central MA",shift:"Nocturnist",setting:"Community",title:"Nocturnist Coverage — Multi-Week Blocks",details:"Flexible block scheduling • APP cross-cover partner • Full tail malpractice covered."}];
+      const filterState=document.getElementById("filter-state"),filterShift=document.getElementById("filter-shift"),filterSetting=document.getElementById("filter-setting"),resetFiltersBtn=document.getElementById("reset-filters-btn"),jobsContainer=document.getElementById("jobs-cards-container"),jobsCountText=document.getElementById("jobs-count-text");
+      function renderJobs(){if(!jobsContainer)return;const sVal=filterState?filterState.value:"ALL",shVal=filterShift?filterShift.value:"ALL",setVal=filterSetting?filterSetting.value:"ALL";const filtered=JOBS_DATA.filter(function(job){return(sVal==="ALL"||job.state===sVal)&&(shVal==="ALL"||job.shift===shVal)&&(setVal==="ALL"||job.setting===setVal)});if(jobsCountText)jobsCountText.textContent="SHOWING "+filtered.length+" ACTIVE HOSPITALIST ASSIGNMENT"+(filtered.length===1?"":"S");jobsContainer.innerHTML="";if(filtered.length===0){jobsContainer.innerHTML='<div class="job-card" style="grid-column:1/-1"><p style="color:var(--ink-slate)">No current listings match that exact filter combination. Submit your CV below to receive direct alerts for upcoming shifts in your preferred state.</p></div>';return}filtered.forEach(function(job){const pillClass=job.shift==="Nocturnist"?"shift-pill nocturnist":job.shift==="Swing"?"shift-pill swing":"shift-pill";const card=document.createElement("article");card.className="job-card";card.innerHTML='<div><div class="job-card-badges"><span class="'+pillClass+'">'+job.shift.toUpperCase()+" &bull; "+job.state+'</span><span class="mono" style="font-size:.74rem;color:var(--ink-muted);font-weight:700">'+job.id+'</span></div><h3 class="serif" style="font-size:1.25rem;font-weight:400;color:var(--navy-deep);margin-top:.65rem">'+job.title+'</h3><div style="font-size:.84rem;font-weight:600;color:var(--cobalt);margin-top:.15rem">'+job.region+" &bull; "+job.setting+'</div><p style="font-size:.9rem;color:var(--ink-slate);margin-top:.6rem">'+job.details+'</p></div><div><button type="button" class="btn btn-outline btn-sm js-apply-job" data-job-id="'+job.id+'" style="width:100%">Apply for '+job.id+" &rarr;</button></div>";jobsContainer.appendChild(card)})}
+      if(filterState)filterState.addEventListener("change",renderJobs);
+      if(filterShift)filterShift.addEventListener("change",renderJobs);
+      if(filterSetting)filterSetting.addEventListener("change",renderJobs);
+      if(resetFiltersBtn)resetFiltersBtn.addEventListener("click",function(){if(filterState)filterState.value="ALL";if(filterShift)filterShift.value="ALL";if(filterSetting)filterSetting.value="ALL";renderJobs()});
+      document.addEventListener("click",function(e){const applyBtn=e.target.closest(".js-apply-job");if(applyBtn){const jobId=applyBtn.getAttribute("data-job-id"),refInput=document.getElementById("phys-job-ref");if(refInput&&jobId)refInput.value=jobId;navigateToSection("phys-cv","PHYSICIAN")}});
       renderJobs();
-
-      const cvDropArea = document.getElementById("cv-drop-area");
-      const cvFileInput = document.getElementById("cv-file");
-      const cvStatusLabel = document.getElementById("cv-status-label");
-      const cvForm = document.getElementById("cv-submission-form");
-      const cvAlert = document.getElementById("cv-alert");
-      const cvSubmitBtn = document.getElementById("cv-submit-btn");
-      let uploadedFile = null;
-
-      function setUploadedCv(file) {
-        if (!file) return;
-        if (file.size > 15 * 1024 * 1024) {
-          cvAlert.className = "feedback-alert error";
-          cvAlert.textContent = "File exceeds the 15 MB limit. Please upload a smaller PDF or Word file.";
-          return;
-        }
-        uploadedFile = file;
-        cvAlert.className = "feedback-alert";
-        cvStatusLabel.textContent = "Ready to upload: " + file.name + " (" + Math.max(1, Math.round(file.size / 1024)) + " KB)";
-        cvStatusLabel.style.color = "#0F766E";
-        cvStatusLabel.style.fontWeight = "700";
-      }
-
-      cvDropArea.addEventListener("click", function () { cvFileInput.click(); });
-      cvDropArea.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cvFileInput.click(); } });
-      cvFileInput.addEventListener("change", function () { if (cvFileInput.files && cvFileInput.files[0]) setUploadedCv(cvFileInput.files[0]); });
-      cvDropArea.addEventListener("dragover", function (e) { e.preventDefault(); cvDropArea.classList.add("dragover"); });
-      cvDropArea.addEventListener("dragleave", function () { cvDropArea.classList.remove("dragover"); });
-      cvDropArea.addEventListener("drop", function (e) { e.preventDefault(); cvDropArea.classList.remove("dragover"); if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) setUploadedCv(e.dataTransfer.files[0]); });
-
-      function readFileAsBase64(file) {
-        return new Promise(function (resolve, reject) {
-          const reader = new FileReader();
-          reader.onload = function () { resolve(reader.result.split(",")[1]); };
-          reader.onerror = function (err) { reject(err); };
-          reader.readAsDataURL(file);
-        });
-      }
-
-      cvForm.addEventListener("submit", async function (e) {
+      const cvDropArea=document.getElementById("cv-drop-area"),cvFileInput=document.getElementById("cv-file"),cvStatusLabel=document.getElementById("cv-status-label"),cvForm=document.getElementById("cv-submission-form"),cvAlert=document.getElementById("cv-alert"),cvSubmitBtn=document.getElementById("cv-submit-btn");
+      let uploadedFile=null;
+      function setUploadedCv(file){if(!file)return;if(file.size>15*1024*1024){cvAlert.className="feedback-alert error";cvAlert.textContent="File exceeds the 15 MB limit. Please upload a smaller PDF or Word file.";return}uploadedFile=file;cvAlert.className="feedback-alert";cvStatusLabel.textContent="Ready to upload: "+file.name+" ("+Math.max(1,Math.round(file.size/1024))+" KB)";cvStatusLabel.style.color="#0F766E";cvStatusLabel.style.fontWeight="700"}
+      cvDropArea.addEventListener("click",function(){cvFileInput.click()});
+      cvDropArea.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();cvFileInput.click()}});
+      cvFileInput.addEventListener("change",function(){if(cvFileInput.files&&cvFileInput.files[0])setUploadedCv(cvFileInput.files[0])});
+      cvDropArea.addEventListener("dragover",function(e){e.preventDefault();cvDropArea.classList.add("dragover")});
+      cvDropArea.addEventListener("dragleave",function(){cvDropArea.classList.remove("dragover")});
+      cvDropArea.addEventListener("drop",function(e){e.preventDefault();cvDropArea.classList.remove("dragover");if(e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0])setUploadedCv(e.dataTransfer.files[0])});
+      function readFileAsBase64(file){return new Promise(function(resolve,reject){const reader=new FileReader();reader.onload=function(){resolve(reader.result.split(",")[1])};reader.onerror=function(err){reject(err)};reader.readAsDataURL(file)})}
+      cvForm.addEventListener("submit",async function(e){
         e.preventDefault();
-        const nameVal = document.getElementById("phys-fullname").value.trim();
-        const emailVal = document.getElementById("phys-email").value.trim();
-        const phoneVal = document.getElementById("phys-phone").value.trim();
-        const boardVal = document.getElementById("phys-board").value;
-        const shiftVal = document.getElementById("phys-shift").value;
-        const jobRefVal = document.getElementById("phys-job-ref").value.trim();
-        const notesVal = document.getElementById("phys-notes").value.trim();
-
-        if (!nameVal || !emailVal || !phoneVal) {
-          cvAlert.className = "feedback-alert error";
-          cvAlert.textContent = "Please complete your full name, email address, and direct phone number.";
-          return;
-        }
-        if (!uploadedFile) {
-          cvAlert.className = "feedback-alert error";
-          cvAlert.textContent = "Please attach your Curriculum Vitae (.pdf, .doc, or .docx) before submitting.";
-          return;
-        }
-
-        const selectedStates = [];
-        document.querySelectorAll("#phys-licenses input[type='checkbox']:checked").forEach(function (cb) { selectedStates.push(cb.value); });
-        const safeNamePrefix = nameVal.replace(/[^a-zA-Z0-9_-]/g, "_");
-        const formattedFileName = safeNamePrefix + "_CV_" + uploadedFile.name;
-
-        cvSubmitBtn.disabled = true;
-        cvSubmitBtn.textContent = "Uploading CV to Google Drive...";
-        cvAlert.className = "feedback-alert";
-
-        try {
-          const base64Data = await readFileAsBase64(uploadedFile);
-          const payload = {
-            fullName: nameVal, email: emailVal, phone: phoneVal, boardStatus: boardVal,
-            shift: shiftVal, jobRef: jobRefVal, licenses: selectedStates.join(", "),
-            notes: notesVal, fileName: formattedFileName,
-            mimeType: uploadedFile.type || "application/pdf", fileData: base64Data
-          };
-          const response = await fetch(GOOGLE_DRIVE_UPLOAD_URL, {
-            method: "POST",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify(payload)
-          });
-          const result = await response.json();
-          if (result && result.status === "success") {
-            cvAlert.className = "feedback-alert success";
-            cvAlert.textContent = "Thank you, " + nameVal + ". Your CV (" + uploadedFile.name + ") has been uploaded directly to our credentialing vault. Our physician leadership team will reach out to you at " + emailVal + ".";
-            showToast("CV uploaded directly to Hospital Medicine Consultants Google Drive.");
-            cvForm.reset();
-            uploadedFile = null;
-            cvStatusLabel.textContent = "Accepted formats: PDF, DOC, DOCX (Max 15 MB) • Direct secure upload";
-            cvStatusLabel.style.color = "var(--ink-muted)";
-            cvStatusLabel.style.fontWeight = "400";
-          } else { throw new Error((result && result.message) || "Upload failed"); }
-        } catch (err) {
-          cvAlert.className = "feedback-alert error";
-          cvAlert.textContent = "We encountered a connection issue uploading your CV. Please try again or email your CV directly to info@hospitalmedicineconsultants.com.";
-        } finally {
-          cvSubmitBtn.disabled = false;
-          cvSubmitBtn.innerHTML = "Upload CV &amp; Register with Physician Leadership &rarr;";
-        }
+        const nameVal=document.getElementById("phys-fullname").value.trim(),emailVal=document.getElementById("phys-email").value.trim(),phoneVal=document.getElementById("phys-phone").value.trim(),boardVal=document.getElementById("phys-board").value,shiftVal=document.getElementById("phys-shift").value,jobRefVal=document.getElementById("phys-job-ref").value.trim(),notesVal=document.getElementById("phys-notes").value.trim();
+        if(!nameVal||!emailVal||!phoneVal){cvAlert.className="feedback-alert error";cvAlert.textContent="Please complete your full name, email address, and direct phone number.";return}
+        if(!uploadedFile){cvAlert.className="feedback-alert error";cvAlert.textContent="Please attach your Curriculum Vitae (.pdf, .doc, or .docx) before submitting.";return}
+        const selectedStates=[];document.querySelectorAll("#phys-licenses input[type='checkbox']:checked").forEach(function(cb){selectedStates.push(cb.value)});
+        const formattedFileName=nameVal.replace(/[^a-zA-Z0-9_-]/g,"_")+"_CV_"+uploadedFile.name;
+        cvSubmitBtn.disabled=!0;cvSubmitBtn.textContent="Uploading CV to Google Drive...";cvAlert.className="feedback-alert";
+        try{
+          const base64Data=await readFileAsBase64(uploadedFile);
+          const payload={fullName:nameVal,email:emailVal,phone:phoneVal,boardStatus:boardVal,shift:shiftVal,jobRef:jobRefVal,licenses:selectedStates.join(", "),notes:notesVal,fileName:formattedFileName,mimeType:uploadedFile.type||"application/pdf",fileData:base64Data};
+          await fetch(GOOGLE_DRIVE_UPLOAD_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+          cvAlert.className="feedback-alert success";cvAlert.textContent="Thank you, "+nameVal+". Your CV ("+uploadedFile.name+") has been submitted directly to our credentialing vault. Our physician leadership team will reach out to you at "+emailVal+".";showToast("CV submitted to Hospital Medicine Consultants Google Drive.");cvForm.reset();uploadedFile=null;cvStatusLabel.textContent="Accepted formats: PDF, DOC, DOCX (Max 15 MB) • Direct secure upload";cvStatusLabel.style.color="var(--ink-muted)";cvStatusLabel.style.fontWeight="400"
+        }catch(err){
+          cvAlert.className="feedback-alert error";cvAlert.textContent="We encountered a network error uploading your CV. Please check your internet connection or email your CV directly to info@hospitalmedicineconsultants.com."
+        }finally{cvSubmitBtn.disabled=!1;cvSubmitBtn.innerHTML="Upload CV &amp; Register with Physician Leadership &rarr;"}
       });
     })();
   </script>
